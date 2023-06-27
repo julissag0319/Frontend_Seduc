@@ -1,10 +1,11 @@
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { FormEvent } from "react";
+import { FormEvent, useEffect } from "react";
 import { FormikState, FormikHandlers } from "formik";
 import { IFormularioBasicoPersona } from "@/shared/FormularioBasicoPersona";
 import ErrorMessage from "@/components/ErrorMessage";
 import BackButton from "@/shared/BackButton";
+import {useState} from "react"
 
 type FormPersonaP = {
   form: FormikState<IFormularioBasicoPersona>& FormikHandlers;
@@ -60,6 +61,18 @@ function FormPersona({
       optionSelectid_Tipo_Cargo, 
       optionSelectid_Estado);
   };
+const [departamento,setdepartamento] = useState([{id_Departamento:1,descripcion_Departamento:"Atlantidad"}])
+useEffect(()=>{
+fetch("http://localhost:4002/departamento") 
+.then((res)=>res.json())
+.then(res=>{
+  setdepartamento(res)//actualizar la variable del depart al valor que retorna la api
+})
+},[])//solo ejecutar una vez
+
+
+
+
 
   return (
     <>
@@ -174,29 +187,12 @@ function FormPersona({
               value={optionSelectid_Departamento}
               onChange={handleChange}
               //defaultValue={"1"}
-              onBlur={handleBlur}
+              
               name="optionSelectid_Departamento"
               className="input-styles"
               disabled={isRemove ? true : false}>
                 <option>Seleccione una Opcion</option>
-                <option value="1">Atlántida</option>
-                <option value="2">Colón</option>
-                <option value="3">Comayagua</option>
-                <option value="4">Copán</option>
-                <option value="5">Cortés</option>
-                <option value="6">Choluteca</option>
-                <option value="7">Paraíso</option>
-                <option value="8">Francisco Morazán</option>
-                <option value="9">Gracias a Dios</option>
-                <option value="10">Intibucá</option>
-                <option value="11">Islas de la Bahía</option>
-                <option value="12">La Paz</option>
-                <option value="13">Lempira</option>
-                <option value="14">Ocotepeque</option>
-                <option value="15">Olancho</option>
-                <option value="16">Santa Bárbara</option>
-                <option value="17">Valle</option>
-                <option value="18">Yoro</option>
+                {departamento.map(({descripcion_Departamento,id_Departamento})=>(<option value={id_Departamento}>{descripcion_Departamento}</option>))}
             </select>
           </div>
             {touched.optionSelectid_Departamento && errors.optionSelectid_Departamento&& (
@@ -217,9 +213,7 @@ function FormPersona({
                 className="input-styles"
                 disabled={isRemove ? true : false}>
                   <option>Seleccione una Opcion</option>
-                  <option value="1">Coordinador De Red</option>
-                  <option value="2">Coordinador Departamental USAD</option>
-                  <option value="3">Supervison y Acompañamiento Docente</option>
+                 
               </select>
           </div>
             {touched.optionSelectid_Tipo_Cargo && errors.optionSelectid_Tipo_Cargo && (
