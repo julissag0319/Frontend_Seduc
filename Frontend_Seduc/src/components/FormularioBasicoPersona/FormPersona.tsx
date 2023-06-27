@@ -71,12 +71,12 @@ fetch("http://localhost:4002/departamento")
 },[])//solo ejecutar una vez
 
 ////////////////////////////////////////////////////////////////
-const [id_tipo_cargo,setid_tipo_cargo] = useState([{id_Tipo_Cargo:1,descripcion_Tipo_Cargo:"Supervision"}])
+const [tipo_cargo,setTipo_Cargo] = useState([{id_Tipo_Cargo:1,descripcion_Tipo_Cargo:"Supervision"}])
 useEffect(()=>{
 fetch("http://localhost:4002/tipo_cargo") 
 .then((res)=>res.json())
 .then(res=>{
-  setdepartamento(res)//actualizar la variable del depart al valor que retorna la api
+  setTipo_Cargo(res)//actualizar la variable del depart al valor que retorna la api
 })
 },[])//solo ejecutar una vez
 
@@ -221,7 +221,7 @@ fetch("http://localhost:4002/tipo_cargo")
                 className="input-styles"
                 disabled={isRemove ? true : false}>
                   <option>Seleccione una Opcion</option>
-                  {id_tipo_cargo.map(({descripcion_Tipo_Cargo,id_Tipo_Cargo})=>(<option value={id_Tipo_Cargo}>{descripcion_Tipo_Cargo}</option>))}
+                  {tipo_cargo.map(({descripcion_Tipo_Cargo,id_Tipo_Cargo})=>(<option value={id_Tipo_Cargo}>{descripcion_Tipo_Cargo}</option>))}
               </select>
           </div>
             {touched.optionSelectid_Tipo_Cargo && errors.optionSelectid_Tipo_Cargo && (
