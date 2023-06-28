@@ -4,9 +4,9 @@ import useSetFormValues from "@/hooks/useSetFormPersonaValues";
 
 type FormularioBasicoUsuarioP = {
   onSubmitHandler: (
-    inputFieldid_Persona: string,
-    inputFieldnombre_Usuario: string,
-    inputFieldcontrasena_Usuario: string,
+    optionSelectid_Persona: string, 
+    inputFieldnombre_Usuario: string, 
+    inputFieldcontrasena_Usuario: string, 
     inputFieldcodigo_Recuperacion: string,
     optionSelectid_Tipo_Usuario: string,
     optionSelectid_Estado: string)  => void;
@@ -17,16 +17,16 @@ function FormularioBasicoUsuario({ onSubmitHandler, formTitle}: FormularioBasico
   const { form } = useSetFormValues(); 
 
   const onSubmitForm = (
-    inputFieldid_Persona: string,
-    inputFieldnombre_Usuario: string,
-    inputFieldcontrasena_Usuario: string,
+    optionSelectid_Persona: string, 
+    inputFieldnombre_Usuario: string, 
+    inputFieldcontrasena_Usuario: string, 
     inputFieldcodigo_Recuperacion: string,
     optionSelectid_Tipo_Usuario: string,
-      optionSelectid_Estado:string) => {
+    optionSelectid_Estado: string) => {
     onSubmitHandler(
-      inputFieldid_Persona,
-      inputFieldnombre_Usuario,
-      inputFieldcontrasena_Usuario,
+      optionSelectid_Persona, 
+      inputFieldnombre_Usuario, 
+      inputFieldcontrasena_Usuario, 
       inputFieldcodigo_Recuperacion,
       optionSelectid_Tipo_Usuario,
       optionSelectid_Estado);

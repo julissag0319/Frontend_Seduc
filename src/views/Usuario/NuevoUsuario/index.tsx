@@ -9,22 +9,24 @@ function NuevoUsuario() {
   const Navigate = useNavigate();
 
   const onSubmitHandler = async (
-    inputFieldid_Persona: string,
+    optionSelectid_Persona: string,
     inputFieldnombre_Usuario: string, 
     inputFieldcontrasena_Usuario: string, 
     inputFieldcodigo_Recuperacion: string,
     optionSelecttipo_Usuario: string,
     optionSelectEstado: string) => {
     try {
+      const sleep = (ms: number) => 
+      new Promise(r => setTimeout(r, ms));
       const usuario: IUsuario = {
-        id_Persona: inputFieldid_Persona,
+        id_Persona: parseInt(optionSelectid_Persona),
         nombre_Usuario: inputFieldnombre_Usuario,
         contrasena_Usuario: inputFieldcontrasena_Usuario,
         codigo_Recuperacion: inputFieldcodigo_Recuperacion,
         id_Tipo_Usuario: parseInt(optionSelecttipo_Usuario),
         id_Estado: parseInt(optionSelectEstado),
       };
-
+      await sleep(4000);
       await nuevoUsuario(usuario);
       Navigate("/listar-usuario");
     } catch (error) {

@@ -5,7 +5,7 @@ import { IFormularioBasicoUsuario } from "@/shared/FormularioBasicoUsuario";
 function useSetFormValues() {
     const form = useFormik({
         initialValues: {
-            inputFieldid_Persona: "", 
+            optionSelectid_Persona: "", 
             inputFieldnombre_Usuario: "", 
             inputFieldcontrasena_Usuario: "", 
             inputFieldcodigo_Recuperacion: "",
@@ -15,7 +15,7 @@ function useSetFormValues() {
         validationSchema: formValidarUsuario,
             onSubmit: (values: IFormularioBasicoUsuario) => {
             const {
-                inputFieldid_Persona, 
+                optionSelectid_Persona, 
                 inputFieldnombre_Usuario, 
                 inputFieldcontrasena_Usuario, 
                 inputFieldcodigo_Recuperacion,
@@ -23,7 +23,7 @@ function useSetFormValues() {
                 optionSelectid_Estado} = values;
                  
             submitFormHandler(
-                inputFieldid_Persona, 
+                optionSelectid_Persona, 
                 inputFieldnombre_Usuario, 
                 inputFieldcontrasena_Usuario, 
                 inputFieldcodigo_Recuperacion,
@@ -32,14 +32,14 @@ function useSetFormValues() {
             },
     });
     const submitFormHandler = (
-    inputFieldid_Persona: string, 
+    optionSelectid_Persona: string, 
     inputFieldnombre_Usuario: string, 
     inputFieldcontrasena_Usuario: string, 
     inputFieldcodigo_Recuperacion: string,
     optionSelectid_Tipo_Usuario: string,
     optionSelectEstado: string) => {
     return { 
-        inputFieldid_Persona, 
+        optionSelectid_Persona, 
         inputFieldnombre_Usuario, 
         inputFieldcontrasena_Usuario, 
         inputFieldcodigo_Recuperacion,

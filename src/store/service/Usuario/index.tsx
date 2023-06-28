@@ -44,15 +44,14 @@ export const usuarioApi = createApi({
     }),
 
     EliminarUsuario: builder.mutation({
-        query: (body: IUsuario) => {
-          return {
-            url: `/eliminar-usuario/${body.id_Usuario}`,
-            method: "DELETE",
-            body,
-          };
-        },
-        invalidatesTags: ["usuario"],
-      }),
+      query: (id: string) => {
+        return {
+          url: `/eliminar-usuario/${id}`,
+          method: "DELETE",
+        };
+      },
+      invalidatesTags: ["usuario"],
+    }),
   }),
 });
 

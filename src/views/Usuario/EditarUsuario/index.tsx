@@ -14,15 +14,17 @@ function EditarUsuario() {
   const [editarUsuario] = useEditarUsuarioMutation();
 
   const onSubmitHandler = async (
-    inputFieldid_Persona: string,
+    optionSelectid_Persona: string,
     inputFieldnombre_Usuario: string,
     inputFieldcontrasena_Usuario: string,
     inputFieldcodigo_Recuperacion: string,
     optionSelectid_Tipo_Usuario: string,
     optionSelectid_Estado: string) => {
     try {
+      const sleep = (ms: number) => 
+      new Promise(r => setTimeout(r, ms));
       const usuario: IUsuario = {
-        id_Persona: inputFieldid_Persona,
+        id_Persona: parseInt(optionSelectid_Persona),
         nombre_Usuario: inputFieldnombre_Usuario,
         contrasena_Usuario: inputFieldcontrasena_Usuario,
         codigo_Recuperacion: inputFieldcodigo_Recuperacion,
@@ -30,7 +32,7 @@ function EditarUsuario() {
         id_Estado: parseInt(optionSelectid_Estado),
         id_Usuario: parseInt(id as string),
       };
-
+      await sleep(4000);
       await editarUsuario(usuario);
       Navigate("/listar-usuario");
     } catch (error) {
@@ -45,12 +47,12 @@ function EditarUsuario() {
     iconRight="Otro icono">
     <div className="h-full">
       <EditarFormularioBasicoUsuario
-        description1={data && data.id_Persona}
-        description2={data && data.nombre_Usuario}
-        description3={data && data.contrasena_Usuario}
-        description4={data && data.codigo_Recuperacion}
-        option1={data && data.id_Tipo_Usuario}
-        option2={data && data.id_Estado}
+        option1={data && data.id_Persona}
+        description1={data && data.nombre_Usuario}
+        description2={data && data.contrasena_Usuario}
+        description3={data && data.codigo_Recuperacion}
+        option2={data && data.id_Tipo_Usuario}
+        option3={data && data.id_Estado}
         onSubmitHandler={onSubmitHandler}
         formTitle="Editar Usuario"
       />
