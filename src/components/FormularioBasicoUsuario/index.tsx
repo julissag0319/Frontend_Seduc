@@ -2,46 +2,40 @@ import FormUsuario from "./FormUsuario";
 import useSetFormValues from "@/hooks/useSetFormPersonaValues";
 //import { IFormularioBasicoPersona } from "@/shared/basic_forms_employee.type";
 
-type FormularioBasicoPersonaP = {
+type FormularioBasicoUsuarioP = {
   onSubmitHandler: (
-    inputFieldnombre_Persona: string, 
-    inputFieldapellido_Persona: string, 
-    inputFieldidentidad_Persona: string, 
-    inputFieldtelefono_Persona: string,
-    inputFieldcorreo_Persona: string, 
-    optionSelectid_Departamento: string,
-    optionSelectid_Tipo_Cargo: string, 
-    optionSelectid_Estado: string) => void;
+    inputFieldid_Persona: string,
+    inputFieldnombre_Usuario: string,
+    inputFieldcontrasena_Usuario: string,
+    inputFieldcodigo_Recuperacion: string,
+    optionSelectid_Tipo_Usuario: string,
+    optionSelectid_Estado: string)  => void;
     formTitle: string;
 };
 
-function FormularioBasicoPersona({ onSubmitHandler, formTitle}: FormularioBasicoPersonaP) {
+function FormularioBasicoUsuario({ onSubmitHandler, formTitle}: FormularioBasicoUsuarioP) {
   const { form } = useSetFormValues(); 
 
   const onSubmitForm = (
-    inputFieldnombre_Persona:string,
-      inputFieldapellido_Persona: string,
-      inputFieldidentidad_Persona:string,
-      inputFieldtelefono_Persona:string,
-      inputFieldcorreo_Persona: string,
-      optionSelectid_Departamento:string,
-      optionSelectid_Tipo_Cargo: string,
+    inputFieldid_Persona: string,
+    inputFieldnombre_Usuario: string,
+    inputFieldcontrasena_Usuario: string,
+    inputFieldcodigo_Recuperacion: string,
+    optionSelectid_Tipo_Usuario: string,
       optionSelectid_Estado:string) => {
     onSubmitHandler(
-      inputFieldnombre_Persona, 
-      inputFieldapellido_Persona, 
-      inputFieldidentidad_Persona, 
-      inputFieldtelefono_Persona,
-      inputFieldcorreo_Persona, 
-      optionSelectid_Departamento,
-      optionSelectid_Tipo_Cargo, 
+      inputFieldid_Persona,
+      inputFieldnombre_Usuario,
+      inputFieldcontrasena_Usuario,
+      inputFieldcodigo_Recuperacion,
+      optionSelectid_Tipo_Usuario,
       optionSelectid_Estado);
   };
 
   return (
     <div className="h-full flex justify-center items-center rounded-lg">
       <div className="max-w-3xl bg-white rounded-md p-16 border-4 border-color-fondo">
-        <FormPersona
+        <FormUsuario
           form={form}
           onSubmitForm={onSubmitForm}
           formTitle={formTitle}
@@ -51,4 +45,4 @@ function FormularioBasicoPersona({ onSubmitHandler, formTitle}: FormularioBasico
   );
 }
 
-export default FormularioBasicoPersona;
+export default FormularioBasicoUsuario;

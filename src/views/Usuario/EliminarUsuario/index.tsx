@@ -48,8 +48,7 @@ function EliminarUsuario() {
           description1={data && data.id_Persona}
           description2={data && data.nombre_Usuario}
           description3={data && data.contrasena_Usuario}
-          description4={data && data.codigo_Usuario}
-          description5={data && data.id_Usuario}
+          description4={data && data.codigo_Recuperacion}
           option1={data && data.id_Tipo_Usuario}
           option2={data && data.id_Estado}
           

@@ -8,16 +8,15 @@ type EditarFormularioBasicoP = {
   description2: string;
   description3: string;
   description4: string;
-  description5: string;
   option1: string;
   option2: string;
-  option3: string;
   onSubmitHandler: (
-    inputFieldNombreUsuario: string, 
-    inputFieldContrasenaUsuario: string, 
-    inputFieldCodigoRecuperacion: string, 
-    optionSelectTipoUsuario: string,
-    optionSelectEstado: string)  => void;
+    inputFieldid_Persona: string,
+    inputFieldnombre_Usuario: string,
+    inputFieldcontrasena_Usuario: string,
+    inputFieldcodigo_Recuperacion: string,
+    optionSelectid_Tipo_Usuario: string,
+    optionSelectid_Estado: string)  => void;
  formTitle: string;
 };
 
@@ -25,17 +24,19 @@ function EditarFormularioBasicoUsuario({
   description1, 
   description2, 
   description3, 
+  description4,
   option1, 
   option2, 
   onSubmitHandler,
   formTitle,
 }: EditarFormularioBasicoP) {
   const [form, setFormData] = useState<IFormularioBasicoUsuario>({
-    inputFieldNombreUsuario: "", 
-    inputFieldContrasenaUsuario: "",
-    inputFieldCodigoRecuperacion: "",   
-    optionSelectTipoUsuario: "",
-    optionSelectEstado: "",
+    inputFieldid_Persona: "",
+    inputFieldnombre_Usuario: "",
+    inputFieldcontrasena_Usuario: "",
+    inputFieldcodigo_Recuperacion: "",
+    optionSelectid_Tipo_Usuario: "",
+    optionSelectid_Estado: "",
   });
 
   useEffect(() => {
@@ -43,19 +44,23 @@ function EditarFormularioBasicoUsuario({
       description1 && 
       description2 && 
       description3 && 
+      description4 && 
             option1 &&
             option2 ) {
       setFormData({
-        inputFieldNombreUsuario: description1,  
-        inputFieldContrasenaUsuario: description2, 
-        inputFieldCodigoRecuperacion: description3,
-        optionSelectTipoUsuario: option1,
-        optionSelectEstado: option2,
+        inputFieldid_Persona: description1,
+        inputFieldnombre_Usuario: description2,
+        inputFieldcontrasena_Usuario: description3,
+        inputFieldcodigo_Recuperacion: description4,
+        optionSelectid_Tipo_Usuario: option1,
+        optionSelectid_Estado:option2,
+
       });
     }
   }, [description1, 
       description2, 
       description3, 
+      description4,
       option1, 
       option2]);
 
@@ -64,17 +69,19 @@ function EditarFormularioBasicoUsuario({
   };
 
   const onSubmitForm = (
-    inputFieldNombreUsuario: string, 
-    inputFieldContrasenaUsuario: string, 
-    inputFieldCodigoRecuperacion: string, 
-    optionSelectTipoUsuario: string,
-    optionSelectEstado: string) => {
+    inputFieldid_Persona: string,
+    inputFieldnombre_Usuario: string,
+    inputFieldcontrasena_Usuario: string,
+    inputFieldcodigo_Recuperacion: string,
+    optionSelectid_Tipo_Usuario: string,
+    optionSelectid_Estado: string) => {
     onSubmitHandler(
-      inputFieldNombreUsuario,  
-      inputFieldContrasenaUsuario, 
-      inputFieldCodigoRecuperacion,
-      optionSelectTipoUsuario,
-      optionSelectEstado);
+      inputFieldid_Persona,
+      inputFieldnombre_Usuario,
+      inputFieldcontrasena_Usuario,
+      inputFieldcodigo_Recuperacion,
+      optionSelectid_Tipo_Usuario,
+      optionSelectid_Estado);
   };
 
   return (

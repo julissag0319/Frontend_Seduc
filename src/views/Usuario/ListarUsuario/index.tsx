@@ -7,7 +7,7 @@ function ListarUsuario() {
 
   return (
     <LayoutContent
-      title="Bienvemido (a) Estas estas en la pantalla: Usuario/Listar"
+      title="Bienvemido(a) Estas estas en la pantalla: Usuario/Listar"
       icon="Icono"
       iconRight="Otro icono">
       <div className="h-auto">

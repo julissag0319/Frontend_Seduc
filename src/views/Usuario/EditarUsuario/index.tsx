@@ -15,17 +15,17 @@ function EditarUsuario() {
 
   const onSubmitHandler = async (
     inputFieldid_Persona: string,
-    inputFieldnombre_Usuario: string, 
-    inputFielcontrasena_Usuario: string, 
-    inputFieldCodigoRecuperacion: string,
+    inputFieldnombre_Usuario: string,
+    inputFieldcontrasena_Usuario: string,
+    inputFieldcodigo_Recuperacion: string,
     optionSelectid_Tipo_Usuario: string,
     optionSelectid_Estado: string) => {
     try {
       const usuario: IUsuario = {
         id_Persona: inputFieldid_Persona,
         nombre_Usuario: inputFieldnombre_Usuario,
-        contrasena_Usuario: inputFielcontrasena_Usuario,
-        codigo_Recuperacion: inputFieldCodigoRecuperacion,
+        contrasena_Usuario: inputFieldcontrasena_Usuario,
+        codigo_Recuperacion: inputFieldcodigo_Recuperacion,
         id_Tipo_Usuario: parseInt(optionSelectid_Tipo_Usuario),
         id_Estado: parseInt(optionSelectid_Estado),
         id_Usuario: parseInt(id as string),
@@ -48,8 +48,7 @@ function EditarUsuario() {
         description1={data && data.id_Persona}
         description2={data && data.nombre_Usuario}
         description3={data && data.contrasena_Usuario}
-        description4={data && data.codigo_Usuario}
-        description5={data && data.id_Usuario}
+        description4={data && data.codigo_Recuperacion}
         option1={data && data.id_Tipo_Usuario}
         option2={data && data.id_Estado}
         onSubmitHandler={onSubmitHandler}
