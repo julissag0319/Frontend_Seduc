@@ -7,7 +7,11 @@ export const PrivateRoute: FC<PropsWithChildren> = ({ children }) => {
   const navigate = useNavigate();
   useEffect(() => {
     apiClient
-      .get("/auth/check-token")
+      .get("/auth/check-token", {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+      })
       .then(({ data }) => {
         setAuthorized(data);
         if (!data) {
