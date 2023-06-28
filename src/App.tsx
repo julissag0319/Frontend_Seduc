@@ -72,6 +72,7 @@ import ListarUsuario from "./views/Usuario/ListarUsuario";
 import EditarUsuario from "./views/Usuario/EditarUsuario";
 import EliminarUsuario from "./views/Usuario/EliminarUsuario";
 import { Login } from "./views/Login";
+import { PrivateRoute } from "./components/PrivateRoute";
 
 {
   /**login*/
@@ -82,7 +83,15 @@ function App() {
     <Routes>
       {/**Menus Administrativos */}
       <Route index={true} path="/login" element={<Login />} />
-      <Route index={true} path="/" element={<MainMenu />} />
+      <Route
+        index={true}
+        path="/"
+        element={
+          <PrivateRoute>
+            <MainMenu />
+          </PrivateRoute>
+        }
+      />
       <Route path="/main-menu-admin" element={<MainMenuAdmin />} />
 
       {/**#1 Departamentos */}
