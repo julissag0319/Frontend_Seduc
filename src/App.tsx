@@ -81,8 +81,8 @@ function App() {
   return (
     <Routes>
       {/**Menus Administrativos */}
-      <Route index={true} path="/" element={<MainMenu />} />
       <Route index={true} path="/login" element={<Login />} />
+      <Route index={true} path="/" element={<MainMenu />} />
       <Route path="/main-menu-admin" element={<MainMenuAdmin />} />
 
       {/**#1 Departamentos */}
