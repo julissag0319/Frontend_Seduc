@@ -72,6 +72,7 @@ import ListarUsuario from "./views/Usuario/ListarUsuario";
 import EditarUsuario from "./views/Usuario/EditarUsuario";
 import EliminarUsuario from "./views/Usuario/EliminarUsuario";
 import { Login } from "./views/Login";
+import { PrivateRoute } from "./components/PrivateRoute";
 
 {
   /**login*/
@@ -81,64 +82,327 @@ function App() {
   return (
     <Routes>
       {/**Menus Administrativos */}
-      <Route index={true} path="/" element={<MainMenu />} />
-      <Route index={true} path="/login" element={<Login />} />
-      <Route path="/main-menu-admin" element={<MainMenuAdmin />} />
+      <Route
+        index={true}
+        path="/main-menu"
+        element={
+          <PrivateRoute>
+            <MainMenu />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/"
+        element={
+          <PrivateRoute>
+            <MainMenu />
+          </PrivateRoute>
+        }
+      />
+
+      <Route path="/login" element={<Login />} />
+      <Route
+        path="/main-menu-admin"
+        element={
+          <PrivateRoute>
+            <MainMenuAdmin />
+          </PrivateRoute>
+        }
+      />
 
       {/**#1 Departamentos */}
-      <Route path="/departamento" element={<MainDepartamento />} />
-      <Route path="/nuevo-departamento" element={<NuevoDepartamento />} />
-      <Route path="/listar-departamento" element={<ListarDepartamento />} />
-      <Route path="/editar-departamento/:id" element={<EditarDepartamento />} />
+      <Route
+        path="/departamento"
+        element={
+          <PrivateRoute>
+            <MainDepartamento />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/nuevo-departamento"
+        element={
+          <PrivateRoute>
+            <NuevoDepartamento />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/listar-departamento"
+        element={
+          <PrivateRoute>
+            <ListarDepartamento />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/editar-departamento/:id"
+        element={
+          <PrivateRoute>
+            <EditarDepartamento />
+          </PrivateRoute>
+        }
+      />
       <Route
         path="/eliminar-departamento/:id"
-        element={<EliminarDepartamento />}
+        element={
+          <PrivateRoute>
+            <EliminarDepartamento />
+          </PrivateRoute>
+        }
       />
 
       {/**#2 TipoCargo */}
-      <Route path="/tipo_cargo" element={<MainTipoCargo />} />
-      <Route path="/nuevo-tipo_cargo" element={<NuevoTipoCargo />} />
-      <Route path="/listar-tipo_cargo" element={<ListarTipoCargo />} />
-      <Route path="/editar-tipo_cargo/:id" element={<EditarTipoCargo />} />
-      <Route path="/eliminar-tipo_cargo/:id" element={<EliminarTipoCargo />} />
+      <Route
+        path="/tipo_cargo"
+        element={
+          <PrivateRoute>
+            <MainTipoCargo />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/nuevo-tipo_cargo"
+        element={
+          <PrivateRoute>
+            <NuevoTipoCargo />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/listar-tipo_cargo"
+        element={
+          <PrivateRoute>
+            <ListarTipoCargo />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/editar-tipo_cargo/:id"
+        element={
+          <PrivateRoute>
+            <EditarTipoCargo />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/eliminar-tipo_cargo/:id"
+        element={
+          <PrivateRoute>
+            <EliminarTipoCargo />
+          </PrivateRoute>
+        }
+      />
 
       {/**#3 TipoUsuario */}
-      <Route path="/tipo_usuario" element={<MainTipoUsuario />} />
-      <Route path="/nuevo-tipo_usuario" element={<NuevoTipoUsuario />} />
-      <Route path="/listar-tipo_usuario" element={<ListarTipoUsuario />} />
-      <Route path="/editar-tipo_usuario/:id" element={<EditarTipoUsuario />} />
+      <Route
+        path="/tipo_usuario"
+        element={
+          <PrivateRoute>
+            <MainTipoUsuario />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/nuevo-tipo_usuario"
+        element={
+          <PrivateRoute>
+            <NuevoTipoUsuario />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/listar-tipo_usuario"
+        element={
+          <PrivateRoute>
+            <ListarTipoUsuario />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/editar-tipo_usuario/:id"
+        element={
+          <PrivateRoute>
+            <EditarTipoUsuario />
+          </PrivateRoute>
+        }
+      />
       <Route
         path="/eliminar-tipo_usuario/:id"
-        element={<EliminarTipoUsuario />}
+        element={
+          <PrivateRoute>
+            <EliminarTipoUsuario />
+          </PrivateRoute>
+        }
       />
 
       {/**#4 municipio */}
-      <Route path="/municipio" element={<MainMunicipio />} />
-      <Route path="/nuevo-municipio" element={<NuevoMunicipio />} />
-      <Route path="/listar-municipio" element={<ListarMunicipio />} />
-      <Route path="/editar-municipio/:id" element={<EditarMunicipio />} />
-      <Route path="/eliminar-municipio/:id" element={<EliminarMunicipio />} />
+      <Route
+        path="/municipio"
+        element={
+          <PrivateRoute>
+            <MainMunicipio />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/nuevo-municipio"
+        element={
+          <PrivateRoute>
+            <NuevoMunicipio />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/listar-municipio"
+        element={
+          <PrivateRoute>
+            <ListarMunicipio />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/editar-municipio/:id"
+        element={
+          <PrivateRoute>
+            <EditarMunicipio />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/eliminar-municipio/:id"
+        element={
+          <PrivateRoute>
+            <EliminarMunicipio />
+          </PrivateRoute>
+        }
+      />
 
       {/**#5 red */}
-      <Route path="/red" element={<MenuRed />} />
-      <Route path="/nuevo-red" element={<NuevaRed />} />
-      <Route path="/listar-red" element={<ListarRed />} />
-      <Route path="/editar-red/:id" element={<EditarRed />} />
-      <Route path="/eliminar-red/:id" element={<EliminarRed />} />
+      <Route
+        path="/red"
+        element={
+          <PrivateRoute>
+            <MenuRed />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/nuevo-red"
+        element={
+          <PrivateRoute>
+            <NuevaRed />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/listar-red"
+        element={
+          <PrivateRoute>
+            <ListarRed />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/editar-red/:id"
+        element={
+          <PrivateRoute>
+            <EditarRed />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/eliminar-red/:id"
+        element={
+          <PrivateRoute>
+            <EliminarRed />
+          </PrivateRoute>
+        }
+      />
 
       {/**#6 usuario */}
-      <Route path="/usuario" element={<MainUsuario />} />
-      <Route path="/nuevo-usuario" element={<NuevoUsuario />} />
-      <Route path="/listar-usuario" element={<ListarUsuario />} />
-      <Route path="/editar-usuario/:id" element={<EditarUsuario />} />
-      <Route path="/eliminar-usuario/:id" element={<EliminarUsuario />} />
+      <Route
+        path="/usuario"
+        element={
+          <PrivateRoute>
+            <MainUsuario />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/nuevo-usuario"
+        element={
+          <PrivateRoute>
+            <NuevoUsuario />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/listar-usuario"
+        element={
+          <PrivateRoute>
+            <ListarUsuario />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/editar-usuario/:id"
+        element={
+          <PrivateRoute>
+            <EditarUsuario />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/eliminar-usuario/:id"
+        element={
+          <PrivateRoute>
+            <EliminarUsuario />
+          </PrivateRoute>
+        }
+      />
 
       {/**#7 persona */}
-      <Route path="/persona" element={<MainPersona />} />
-      <Route path="/nuevo-persona" element={<NuevoPersona />} />
-      <Route path="/listar-persona" element={<ListarPersona />} />
-      <Route path="/editar-persona/:id" element={<EditarPersona />} />
-      <Route path="/eliminar-persona/:id" element={<EliminarPersona />} />
+      <Route
+        path="/persona"
+        element={
+          <PrivateRoute>
+            <MainPersona />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/nuevo-persona"
+        element={
+          <PrivateRoute>
+            <NuevoPersona />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/listar-persona"
+        element={
+          <PrivateRoute>
+            <ListarPersona />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/editar-persona/:id"
+        element={
+          <PrivateRoute>
+            <EditarPersona />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/eliminar-persona/:id"
+        element={
+          <PrivateRoute>
+            <EliminarPersona />
+          </PrivateRoute>
+        }
+      />
 
       {/**#Login */}
     </Routes>

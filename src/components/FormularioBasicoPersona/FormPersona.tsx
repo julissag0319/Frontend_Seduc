@@ -6,6 +6,7 @@ import { IFormularioBasicoPersona } from "@/shared/FormularioBasicoPersona";
 import ErrorMessage from "@/components/ErrorMessage";
 import BackButton from "@/shared/BackButton";
 import { useState } from "react";
+import { apiClient } from "@/utilitarios/axios";
 
 type FormPersonaP = {
   form: FormikState<IFormularioBasicoPersona> & FormikHandlers;
@@ -68,24 +69,18 @@ function FormPersona({
     { id_Departamento: 1, descripcion_Departamento: "Atlantidad" },
   ]);
   useEffect(() => {
-    fetch("http://localhost:4002/departamento")
-      .then((res) => res.json())
-      .then((res) => {
-        setdepartamento(res); //actualizar la variable del depart al valor que retorna la api
-      });
+    apiClient.get("/departamento").then(({ data }) => {
+      setdepartamento(data);
+    });
+    apiClient.get("/tipo_cargo").then(({ data }) => {
+      setTipo_Cargo(data); //actualizar la variable del depart al valor que retorna la api
+    });
   }, []); //solo ejecutar una vez
 
   ////////////////////////////////////////////////////////////////
   const [tipo_cargo, setTipo_Cargo] = useState([
     { id_Tipo_Cargo: 1, descripcion_Tipo_Cargo: "Supervision" },
   ]);
-  useEffect(() => {
-    fetch("http://localhost:4002/tipo_cargo")
-      .then((res) => res.json())
-      .then((res) => {
-        setTipo_Cargo(res); //actualizar la variable del depart al valor que retorna la api
-      });
-  }, []); //solo ejecutar una vez
 
   return (
     <>
