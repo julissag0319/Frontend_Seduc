@@ -139,6 +139,8 @@ useEffect(() => {
             )}
         </div>
 
+        
+
         {/*Text Box de contrasena del Usuario*/}
    <div className={`${flexInputContainer}`}>
         <div className={`${flexLabelInputs}`}>
