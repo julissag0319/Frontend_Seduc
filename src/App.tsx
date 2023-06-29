@@ -82,9 +82,16 @@ function App() {
   return (
     <Routes>
       {/**Menus Administrativos */}
-      <Route index={true} path="/login" element={<Login />} />
       <Route
         index={true}
+        path="/main-menu"
+        element={
+          <PrivateRoute>
+            <MainMenu />
+          </PrivateRoute>
+        }
+      />
+      <Route
         path="/"
         element={
           <PrivateRoute>
@@ -92,6 +99,8 @@ function App() {
           </PrivateRoute>
         }
       />
+
+      <Route path="/login" element={<Login />} />
       <Route
         path="/main-menu-admin"
         element={
