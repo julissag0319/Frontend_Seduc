@@ -1,35 +1,41 @@
 import FormUsuario from "./FormUsuario";
-import useSetFormValues from "@/hooks/useSetFormPersonaValues";
+import useSetFormValues from "@/hooks/useSetFormUsuarioValues";
 //import { IFormularioBasicoPersona } from "@/shared/basic_forms_employee.type";
 
 type FormularioBasicoUsuarioP = {
   onSubmitHandler: (
-    optionSelectid_Persona: string, 
-    inputFieldnombre_Usuario: string, 
-    inputFieldcontrasena_Usuario: string, 
+    optionSelectid_Persona: string,
+    inputFieldnombre_Usuario: string,
+    inputFieldcontrasena_Usuario: string,
     inputFieldcodigo_Recuperacion: string,
     optionSelectid_Tipo_Usuario: string,
-    optionSelectid_Estado: string)  => void;
-    formTitle: string;
+    optionSelectid_Estado: string
+  ) => void;
+  formTitle: string;
 };
 
-function FormularioBasicoUsuario({ onSubmitHandler, formTitle}: FormularioBasicoUsuarioP) {
-  const { form } = useSetFormValues(); 
+function FormularioBasicoUsuario({
+  onSubmitHandler,
+  formTitle,
+}: FormularioBasicoUsuarioP) {
+  const { form } = useSetFormValues();
 
   const onSubmitForm = (
-    optionSelectid_Persona: string, 
-    inputFieldnombre_Usuario: string, 
-    inputFieldcontrasena_Usuario: string, 
+    optionSelectid_Persona: string,
+    inputFieldnombre_Usuario: string,
+    inputFieldcontrasena_Usuario: string,
     inputFieldcodigo_Recuperacion: string,
     optionSelectid_Tipo_Usuario: string,
-    optionSelectid_Estado: string) => {
+    optionSelectid_Estado: string
+  ) => {
     onSubmitHandler(
-      optionSelectid_Persona, 
-      inputFieldnombre_Usuario, 
-      inputFieldcontrasena_Usuario, 
+      optionSelectid_Persona,
+      inputFieldnombre_Usuario,
+      inputFieldcontrasena_Usuario,
       inputFieldcodigo_Recuperacion,
       optionSelectid_Tipo_Usuario,
-      optionSelectid_Estado);
+      optionSelectid_Estado
+    );
   };
 
   return (
