@@ -6,6 +6,7 @@ import { FormEvent, useEffect } from "react";
 import { FormikState, FormikHandlers } from "formik";
 import ErrorMessage from "@/components/ErrorMessage";
 import { useState } from "react";
+import { apiClient } from "@/utilitarios/axios";
 
 type FormUsuarioP = {
   form: FormikState<IFormularioBasicoUsuario> & FormikHandlers;
@@ -63,23 +64,17 @@ function FormUsuario({
     { id_Persona: 1, descripcion_Persona: "Julissa" },
   ]);
   useEffect(() => {
-    fetch("http://localhost:4002/persona")
-      .then((res) => res.json())
-      .then((res) => {
-        setpersona(res); //actualizar la variable del depart al valor que retorna la api
-      });
+    apiClient.get("/persona").then(({ data }) => {
+      setpersona(data); //actualizar la variable del depart al valor que retorna la api
+    });
+    apiClient.get("/tipo_usuario").then(({ data }) => {
+      settipo_usuario(data); //actualizar la variable del depart al valor que retorna la api
+    });
   }, []); //solo ejecutar una vez
 
   const [tipo_usuario, settipo_usuario] = useState([
     { id_Tipo_Usuario: 1, descripcion_Tipo_Usuario: "" },
   ]);
-  useEffect(() => {
-    fetch("http://localhost:4002/tipo_usuario")
-      .then((res) => res.json())
-      .then((res) => {
-        settipo_usuario(res); //actualizar la variable del depart al valor que retorna la api
-      });
-  }, []); //solo ejecutar una vez
 
   return (
     <>

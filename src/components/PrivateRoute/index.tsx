@@ -15,12 +15,12 @@ export const PrivateRoute: FC<PropsWithChildren> = ({ children }) => {
       .then(({ data }) => {
         setAuthorized(data);
         if (!data) {
-          navigate("login");
+          navigate("/login");
         }
       })
       .catch((error) => {
         console.error(error);
-        navigate("login");
+        navigate("/login");
       });
   }, []);
 
