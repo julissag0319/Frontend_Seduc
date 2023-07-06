@@ -5,6 +5,13 @@ export const departamentoApi = createApi({
   reducerPath: "departamentoApi",
   baseQuery: fetchBaseQuery({
     baseUrl: `http://localhost:4002/departamento`,
+
+
+    headers:{
+      "Authorization":`Bearer ${sessionStorage.getItem("token")}` 
+    }
+
+
   }),
   tagTypes: ["departamento"],
   endpoints: (builder) => ({

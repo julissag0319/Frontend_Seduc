@@ -85,6 +85,7 @@ function FormPersona({
   return (
     <>
       <h2 className="pb-7 text-center font-bold text-xl">{formTitle}</h2>
+      
       <form
         onSubmit={handleSubmitForm}
         className="p-4 border border-color-fondo rounded-lg"

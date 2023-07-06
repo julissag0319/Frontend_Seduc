@@ -74,7 +74,7 @@ function EditarFormularioBasicoUsuario({
 
   return (
     <div className="h-full flex justify-center items-center">
-      <div className="max-w-3xl bg-gray-100 rounded-md p-16 border border-black 200">
+      <div className="max-w-3xl bg-white rounded-md p-16 border-4 border-color-fondo">
         <FormUsuario
           form={form}
           onSubmitForm={onSubmitForm}

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { BsFillBookmarkPlusFill, BsFillBookmarksFill } from "react-icons/bs";
+import {  BsFiles ,BsBookmarkCheck } from "react-icons/bs";
 import BackButton from "@/shared/BackButton";
 
 type Props = {
@@ -28,14 +28,14 @@ function BasicLayout({
           <div
             className="cards-menu-div hover:cursor-pointer border border-color-fondo rounded-lg "
             onClick={() => Navigate(navigateAddTo)}>
-              <BsFillBookmarkPlusFill style={{color: 'FFFFFF' , fontSize : '50px', margin:'auto' }}/>
+              <BsBookmarkCheck style={{color: 'FFFFFF' , fontSize : '50px', margin:'auto' }}/>
               <br></br>
            <p className="font-bold text-white text-xl">{titleAdd}</p>
           </div>
           <div
             className="cards-menu-div hover:cursor-pointer border border-color-fondo rounded-lg"
             onClick={() => Navigate(navigateListTo)}>
-              <BsFillBookmarksFill style={{color: 'FFFFFF' , fontSize : '50px', margin:'auto' }}/>
+              <BsFiles style={{color: 'FFFFFF' , fontSize : '50px', margin:'auto' }}/>
             <br></br> 
             <p className="font-bold text-white text-xl">{titleList}</p>
           </div>

@@ -26,8 +26,7 @@ function FormularioBasicoUsuario({
     inputFieldcontrasena_Usuario: string,
     inputFieldcodigo_Recuperacion: string,
     optionSelectid_Tipo_Usuario: string,
-    optionSelectid_Estado: string
-  ) => {
+    optionSelectid_Estado: string ) => {
     onSubmitHandler(
       optionSelectid_Persona,
       inputFieldnombre_Usuario,

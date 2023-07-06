@@ -5,6 +5,13 @@ export const listarPersonaExcelApi = createApi({
   reducerPath: "listarPersonaExcelApi",
   baseQuery: fetchBaseQuery({
     baseUrl: `http://localhost:4002/obtenerexcelpersona`,
+
+    //hacer la auterizacion del Token
+    headers:{
+      "Authorization":`Bearer ${sessionStorage.getItem("token")}` 
+    }
+
+
   }),
   tagTypes: ["obtenerexcelpersona"],
   endpoints: (builder) => ({

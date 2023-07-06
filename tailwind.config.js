@@ -12,6 +12,11 @@ export default {
     },
   },
   plugins: [],
+
+  backgroundImage: {
+    "img-purple": "url('/src/assets/undraw_teacher_re_sico.svg')",
+
+},
 };
 
 

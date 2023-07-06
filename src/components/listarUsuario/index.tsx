@@ -9,7 +9,7 @@ type Props = {
   data: IUsuario[];
 };
 
-function TableListUser({ data }: Props) {
+function TableList({ data }: Props) {
   const [searchValue, setSearchValue] = useState<string>("");
 
   const onSubmitHandle = (value: string) => {
@@ -27,7 +27,7 @@ function TableListUser({ data }: Props) {
 
       <div
         className="max-w-full mx-auto rounded-lg shadow-md overflow-auto"
-        style={{ maxHeight: "250px" }}>
+        style={{ maxHeight: "350px" }}>
         <table className="w-full table-fixed rounded-lg">
           <thead className="overflow-y-auto border border-black text-center">
             <tr className="bg-white">
@@ -72,9 +72,9 @@ function TableListUser({ data }: Props) {
           </tbody>
         </table>
       </div>
-      <BackButton path="/tipo-usuario" />
+      <BackButton path="/usuario" />
     </LayoutCards>
   );
 }
 
-export default TableListUser;
+export default TableList;

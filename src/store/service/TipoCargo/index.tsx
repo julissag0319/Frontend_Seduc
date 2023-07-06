@@ -5,6 +5,15 @@ export const tipocargoApi = createApi({
   reducerPath: "tipocargoApi",
   baseQuery: fetchBaseQuery({
     baseUrl: `http://localhost:4002/tipo_cargo`,
+
+
+    //hacer la auterizacion del Token
+    headers:{
+      "Authorization":`Bearer ${sessionStorage.getItem("token")}` 
+    }
+
+
+
   }),
   tagTypes: ["tipo_cargo"],
   endpoints: (builder) => ({

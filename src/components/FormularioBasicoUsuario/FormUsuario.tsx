@@ -1,10 +1,10 @@
-import { IFormularioBasicoUsuario } from "@/shared/FormularioBasicoUsuario";
-import BackButton from "@/shared/BackButton";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FormEvent, useEffect } from "react";
 import { FormikState, FormikHandlers } from "formik";
+import { IFormularioBasicoUsuario } from "@/shared/FormularioBasicoUsuario";
 import ErrorMessage from "@/components/ErrorMessage";
+import BackButton from "@/shared/BackButton";
 import { useState } from "react";
 import { apiClient } from "@/utilitarios/axios";
 
@@ -28,8 +28,8 @@ function FormUsuario({
   formTitle,
   isRemove,
 }: FormUsuarioP) {
-  const flexLabelInputs = `flex items-center mb-4 space-x-10`;
   const flexInputContainer = `flex-col items-center`;
+  const flexLabelInputs = `flex items-center mb-4 space-x-10`;
   const labelStyle = `block font-medium mb-2 font-bold`;
   const notamjs = () => toast.success("correctamente");
   const {
@@ -61,7 +61,7 @@ function FormUsuario({
   };
 
   const [persona, setpersona] = useState([
-    { id_Persona: 1, descripcion_Persona: "Julissa" },
+    { id_Persona: 1, nombre_Persona: "Julissa" },
   ]);
   useEffect(() => {
     apiClient.get("/persona").then(({ data }) => {
@@ -96,12 +96,14 @@ function FormUsuario({
             className="input-styles"
             disabled={isRemove ? true : false}
           >
-            <option>Selecione el Tipo de Usuario</option>
-            {persona.map(({ descripcion_Persona, id_Persona }) => (
-              <option key={descripcion_Persona} value={id_Persona}>
-                {descripcion_Persona}
-              </option>
-            ))}
+            <option>Selecione el id Persona</option>
+            {persona.map(
+                ({ nombre_Persona, id_Persona }) => (
+                  <option value={id_Persona}>
+                    {nombre_Persona}
+                  </option>
+                )
+              )}
           </select>
         </div>
 
@@ -187,16 +189,16 @@ function FormUsuario({
               disabled={isRemove ? true : false}
             >
               <option>Selecione el Tipo de Usuario</option>
+
               {tipo_usuario.map(
                 ({ descripcion_Tipo_Usuario, id_Tipo_Usuario }) => (
-                  <option
-                    key={descripcion_Tipo_Usuario}
-                    value={id_Tipo_Usuario}
-                  >
+                  <option value={id_Tipo_Usuario}>
                     {descripcion_Tipo_Usuario}
                   </option>
                 )
               )}
+
+
             </select>
           </div>
           {touched.optionSelectid_Tipo_Usuario &&
@@ -231,7 +233,6 @@ function FormUsuario({
           <button
             type="submit"
             onClick={notamjs}
-            onBlur={handleBlur}
             disabled={
               inputFieldnombre_Usuario.length < 3 ||
               inputFieldnombre_Usuario.length > 50 ||

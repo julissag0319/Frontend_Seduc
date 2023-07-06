@@ -1,6 +1,9 @@
 import { apiClient } from "@/utilitarios/axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import vertigo from "../../img/LOGO_USAD (1).png"
+import backgroundImage from "../../assets/undraw_teacher_re_sico.svg"
+
 
 export const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -25,8 +28,15 @@ export const Login = () => {
         setError(error.response.data.error);
       });
   };
-  return (
-    <div className="grid place-items-center w-full h-screen bg-blue-300">
+
+  <img src={backgroundImage} alt="right" />
+  return (//fondo
+  
+ 
+  
+    <div className="grid place-items-letf w-full h-screen bg-white"> 
+    
+    
       {error && (
         <div className="flex w-1/4 shadow-lg py-2  rounded-md bg-white flex-col ">
           <button
@@ -49,7 +59,7 @@ export const Login = () => {
             </svg>
           </button>
 
-          <div className=" flex gap-1 p-2 text-red-600 self-center">
+          <div className=" flex gap-1 p-2 text-black self-center">
             <p>{error}</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -68,16 +78,23 @@ export const Login = () => {
           </div>
         </div>
       )}
+      <img src={vertigo} alt="Vertigo " />
+      
 
-      <div className="w-min shadow-lg p-10 rounded-md bg-white ">
-        <h1 className="text-2xl text-center text-blue-500 ">
-          Inicio de Sesion USAD
+      <div className="flex items-center flex-col gap-8 w-left max-w-[500px]">
+        <h1 className="font-sans-center text-4xl font-bold text-bg-black">
+          Bienvenido(a)
+          
         </h1>
-        <div className="bg-gray-200  rounded-sm my-5 px-1">
+        <h2 className="font-sans-center text-1x2 font-bold text-bg-black">
+        <p>Al Control de Redes de Centros Educativos</p>
+        </h2>
+        <div className="bg-gray-200  rounded-sm my-5 px-2">
+      
           <input
             placeholder="Nombre de Usuario"
             onChange={({ target }) => setNombre_Usuario(target.value)}
-            className="outline-none bg-transparent p-2"
+            className="outline-none bg-transparent p-1"
           />
         </div>
         <div className="bg-gray-200 rounded-sm my-5 flex flex-row px-1">
@@ -85,7 +102,7 @@ export const Login = () => {
             type={passwordVisible ? "text" : "password"}
             placeholder="Contraseña"
             onChange={({ target }) => setContrasena(target.value)}
-            className="outline-none bg-transparent p-2"
+            className="outline-none bg-transparent p-1"
           />
           <button
             className="text-gray-500"
@@ -127,15 +144,23 @@ export const Login = () => {
                 />
               </svg>
             )}
+            
           </button>
+          
         </div>
+        
         <button
           onClick={login}
-          className="p-2 rounded-md bg-blue-600 text-white w-full mt-5"
-        >
+          className="p-2 rounded-md bg-color-fondo text-white w-center mt-5">
           Iniciar Sesion
         </button>
+        
+        
       </div>
+      
+      
     </div>
+    
+
   );
 };

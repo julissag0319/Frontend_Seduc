@@ -1,7 +1,11 @@
-import { useEffect } from "react";
+import { useEffect} from "react";
 import FormUsuario from "../FormularioBasicoUsuario/FormUsuario";
-//import { IFormularioBasicoUsuario } from "@/shared/FormularioBasicoUsuario";
 import useSetFormValues from "@/hooks/useSetFormUsuarioValues";
+//import { IFormularioBasicoPersona } from "@/shared/FormularioBasicoPersona";
+//import { Form } from "formik";
+
+
+
 
 type EliminarFormularioBasicoUsuarioP = {
   option1: string;
@@ -11,6 +15,7 @@ type EliminarFormularioBasicoUsuarioP = {
   option2: string;
   option3: string;
   onSubmitHandler:() => void;
+
  formTitle: string;
 };
 

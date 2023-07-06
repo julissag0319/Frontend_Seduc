@@ -5,6 +5,13 @@ export const municipioApi = createApi({
   reducerPath: "municipioApi",
   baseQuery: fetchBaseQuery({
     baseUrl: `http://localhost:4002/municipio`,
+
+    //hacer la auterizacion del Token
+    headers:{
+      "Authorization":`Bearer ${sessionStorage.getItem("token")}` 
+    }
+
+
   }),
   tagTypes: ["municipio"],
   endpoints: (builder) => ({

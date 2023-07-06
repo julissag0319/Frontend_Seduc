@@ -18,7 +18,7 @@ function Menu() {
             title6="Módulo Usuario"
             title7="Módulo Persona"
             title8="Módulo Escuela"
-            title9="Obtener EXCEL"
+            title9="Estadistica"
 
             navigate1="/departamento"
             navigate2="/tipo_cargo"
@@ -28,7 +28,7 @@ function Menu() {
             navigate6="/usuario"
             navigate7="/persona"  
             navigate8="/escuela"
-            navigate9="/obtenerexcel"
+            navigate9="/estadistica"
         />
       </div>
     </LayoutContent>

@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 {
   /**Importar todas las vistas de los cruds. */
 }
+
 {
   /**Imports Vistas de Menus Principales*/
 }
@@ -63,6 +64,19 @@ import ListarRed from "./views/Red/ListarRed";
 import NuevaRed from "./views/Red/NuevoRed";
 import MenuRed from "./views/Red/MenuRed";
 
+
+{
+  /**Imports 7 Vistas de Menu Principal y CRUD de Escuela*/
+}
+import MainEscuela from "./views/Escuela/MenuEscuela";
+import NuevoEscuela from "./views/Escuela/NuevaEscuela";
+import ListarEscuela from "./views/Escuela/ListarEscuela";
+import EditarEscuela from "./views/Escuela/EditarEscuela";
+import EliminarEscuela from "./views/Escuela/EliminarEscuela";
+
+
+
+
 {
   /**Imports 7 Vistas de Menu Principal y CRUD de Municipio*/
 }
@@ -72,7 +86,10 @@ import ListarUsuario from "./views/Usuario/ListarUsuario";
 import EditarUsuario from "./views/Usuario/EditarUsuario";
 import EliminarUsuario from "./views/Usuario/EliminarUsuario";
 import { Login } from "./views/Login";
+
 import { PrivateRoute } from "./components/PrivateRoute";
+
+
 
 {
   /**login*/
@@ -109,7 +126,9 @@ function App() {
           </PrivateRoute>
         }
       />
+////////////////////////////////////////////////////////////
 
+////////////////////////////////////////////////////////////////
       {/**#1 Departamentos */}
       <Route
         path="/departamento"
@@ -403,6 +422,51 @@ function App() {
           </PrivateRoute>
         }
       />
+
+{/**#1 Escuela */}
+<Route
+        path="/escuela"
+        element={
+          <PrivateRoute>
+            <MainEscuela />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/nuevo-escuela"
+        element={
+          <PrivateRoute>
+            <NuevoEscuela />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/listar-escuela"
+        element={
+          <PrivateRoute>
+            <ListarEscuela />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/editar-escuela/:id"
+        element={
+          <PrivateRoute>
+            <EditarEscuela />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/eliminar-escuela/:id"
+        element={
+          <PrivateRoute>
+            <EliminarEscuela />
+          </PrivateRoute>
+        }
+      />
+
+
+
 
       {/**#Login */}
     </Routes>

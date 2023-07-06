@@ -13,7 +13,9 @@ type FormularioBasicoEscuelaP = {
     formTitle: string;
 };
 
-function FormularioBasicoEscuela({ onSubmitHandler, formTitle}: FormularioBasicoEscuelaP) {
+function FormularioBasicoEscuela({
+   onSubmitHandler, formTitle}:
+    FormularioBasicoEscuelaP) {
   const { form } = useSetFormValues(); 
 
   const onSubmitForm = (

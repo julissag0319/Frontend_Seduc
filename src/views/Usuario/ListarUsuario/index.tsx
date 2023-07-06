@@ -1,6 +1,7 @@
 import { useObtenerTodosUsuarioQuery } from "@/store/service/Usuario";
-import TableList from "@/components/listarUsuario/index";
 import LayoutContent from "@/components/layout";
+import TableListaUsuario from "@/components/listarUsuario";
+
 
 function ListarUsuario() {
   const { data } = useObtenerTodosUsuarioQuery({});
@@ -11,7 +12,7 @@ function ListarUsuario() {
       icon="Icono"
       iconRight="Otro icono">
       <div className="h-auto">
-        <TableList data={data} />
+        <TableListaUsuario data={data} />
       </div>
     </LayoutContent>
   );

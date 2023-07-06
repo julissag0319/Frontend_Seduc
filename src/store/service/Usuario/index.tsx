@@ -5,6 +5,15 @@ export const usuarioApi = createApi({
   reducerPath: "usuarioApi",
   baseQuery: fetchBaseQuery({
     baseUrl: `http://localhost:4002/usuario`,
+
+    //hacer la auterizacion del Token
+    headers:{
+      "Authorization":`Bearer ${sessionStorage.getItem("token")}` 
+    }
+
+
+
+
   }),
   tagTypes: ["usuario"],
   endpoints: (builder) => ({

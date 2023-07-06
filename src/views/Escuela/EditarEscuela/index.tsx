@@ -1,4 +1,4 @@
-import EditarFormularioBasicoEscuelaP from "@/components/eliminarFormularioBasicoEscuela";
+import EditarFormularioBasicoEscuela from "@/components/editarFormularioBasicoEscuela";
 import LayoutContent from "@/components/layout";
 import { IEscuela } from "@/shared/EscuelaBB";
 import {
@@ -34,7 +34,7 @@ function EditarEscuela() {
       };
       await sleep(4000);
       await editarEscuela(escuela);
-      Navigate("/listar-escuela");
+      Navigate("/listar-persona");
     } catch (error) {
       console.log(error);
     }
@@ -42,13 +42,13 @@ function EditarEscuela() {
 
   return (
     <LayoutContent
-      title="Bienvenido(a): Estas en la Pantalla de Escuelas"
+      title="Bienvenido(a): Estas en la Pantalla de Escuela"
       icon="Icono"
       iconRight="Otro icono">
       <div className="h-full">
-        <EditarFormularioBasicoEscuelaP
-          option1={data && data.id_Departamento}
-          option2={data && data.id_Municipio}
+        <EditarFormularioBasicoEscuela
+         option1={data && data.id_Departamento}
+         option2={data && data.id_Municipio}
           description1={data && data.descripcion_Escuela}
           option3={data && data.id_Persona}
           option4={data && data.id_Red}

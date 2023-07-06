@@ -1,12 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { BiBookReader, BiHomeAlt} from "react-icons/bi";
 import { BsFillPinMapFill} from "react-icons/bs";
-import {BsFillPersonFill,BsPeopleFill} from "react-icons/bs";
+import {BsFillPersonFill,BsPeopleFill,BsBarChartLineFill} from "react-icons/bs";
 import { HiUserCircle} from "react-icons/hi";
 import { IoPeopleCircle } from "react-icons/io5";
 import { FiMapPin} from "react-icons/fi";
 import BackButton from "@/shared/BackButton";
-
 type Props = {
   title: string;
   title1: string;
@@ -135,10 +134,10 @@ function MainLayout({
           
 
             {/*Boton #8 EXCEL*/}
-                  <div
+            <div
             className="cards-menu-div hover:cursor-pointer border border-color-fondo rounded-lg"
             onClick={() => Navigate(navigate9)}>
-              <BiHomeAlt style={{color: 'FFFFFF' , fontSize : '50px', margin:'auto' }}/>
+              <BsBarChartLineFill style={{color: 'FFFFFF' , fontSize : '50px', margin:'auto' }}/>
               <br></br>
            <p className="font-bold text-xl text-white">{title9}</p>
           </div>

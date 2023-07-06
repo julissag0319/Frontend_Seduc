@@ -5,6 +5,15 @@ export const redApi = createApi({
   reducerPath: "redApi",
   baseQuery: fetchBaseQuery({
     baseUrl: `http://localhost:4002/red`,
+
+    //hacer la auterizacion del Token
+    headers:{
+      "Authorization":`Bearer ${sessionStorage.getItem("token")}` 
+    }
+
+
+
+
   }),
   tagTypes: ["red"],
   endpoints: (builder) => ({

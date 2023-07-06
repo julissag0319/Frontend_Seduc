@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-const isFieldRequired = "Este Campo es Obligatorio";
+const isFieldRequired = "Obligatorio";
 const minLenght = "Minimo de 6 caracteres";
 const maxLenght = "Maximo de 50 caracteres";
 

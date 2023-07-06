@@ -1,10 +1,12 @@
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { FormEvent } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { FormEvent, useEffect } from "react";
 import { FormikState, FormikHandlers } from "formik";
 import { IFormularioBasicoEscuela } from "@/shared/FormularioBasicoEscuela";
 import ErrorMessage from "@/components/ErrorMessage";
 import BackButton from "@/shared/BackButton";
+import { useState } from "react";
+import { apiClient } from "@/utilitarios/axios";
 
 type FormEscuelaP = {
   form: FormikState<IFormularioBasicoEscuela>& FormikHandlers;
@@ -54,91 +56,101 @@ function FormEscuela({
         optionSelectid_Red,
         optionSelectid_Estado);
   };
+/////////////////////////////////////////////////////////////////////
+  const [departamento, setdepartamento] = useState([
+    { id_Departamento: 1, descripcion_Departamento: "Atlantidad" },
+  ]);
+  useEffect(() => {
+    apiClient.get("/departamento").then(({ data }) => {
+      setdepartamento(data);
+    });
 
+    apiClient.get("/municipio").then(({ data }) => {
+        setMunicipio(data);
+      }); 
+
+
+      apiClient.get("/red").then(({ data }) => {
+        setRed(data);
+      });   
+  }, []);
+///////////////////////////////////////////////////////////////////
+const [municipio, setMunicipio] = useState([
+  { id_Municipio: 1, descripcion_Municipio: "Supervision" },
+]);
+
+///////////////////////////////////////////////////////////////////
+
+const [red, setRed] = useState([
+  { id_Red: 1, descripcion_Red: "Supervision" },
+]);
+
+///////////////////////////////////////////////////////////////////
   return (
     <>
       <h2 className="pb-7 text-center font-bold text-xl">{formTitle}</h2>
       <form onSubmit={handleSubmitForm} className="p-4 border border-color-fondo rounded-lg"> 
         
-
         
       {/*Option Select de id Departamento*/}
-      <div className={`${flexInputContainer}`}>
+          <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
             <label className={`${labelStyle}`}>Id Departamento</label>
             <select
               value={optionSelectid_Departamento}
               onChange={handleChange}
               //defaultValue={"1"}
-              onBlur={handleBlur}
+
               name="optionSelectid_Departamento"
               className="input-styles"
-              disabled={isRemove ? true : false}>
-                <option>Seleccione una Opcion</option>
-                <option value="1">Atlántida</option>
-                <option value="2">Colón</option>
-                <option value="3">Comayagua</option>
-                <option value="4">Copán</option>
-                <option value="5">Cortés</option>
-                <option value="6">Choluteca</option>
-                <option value="7">Paraíso</option>
-                <option value="8">Francisco Morazán</option>
-                <option value="9">Gracias a Dios</option>
-                <option value="10">Intibucá</option>
-                <option value="11">Islas de la Bahía</option>
-                <option value="12">La Paz</option>
-                <option value="13">Lempira</option>
-                <option value="14">Ocotepeque</option>
-                <option value="15">Olancho</option>
-                <option value="16">Santa Bárbara</option>
-                <option value="17">Valle</option>
-                <option value="18">Yoro</option>
+              disabled={isRemove ? true : false}
+            >
+              <option>Seleccione una Opcion</option>
+              {departamento.map(
+                ({ descripcion_Departamento, id_Departamento }) => (
+                  <option value={id_Departamento}>
+                    {descripcion_Departamento}
+                  </option>
+                )
+              )}
             </select>
           </div>
-            {touched.optionSelectid_Departamento && errors.optionSelectid_Departamento&& (
+          {touched.optionSelectid_Departamento &&
+            errors.optionSelectid_Departamento && (
               <ErrorMessage message={errors.optionSelectid_Departamento} />
             )}
-        </div> 
+        </div>
 
     
     
-      {/*Option Select de id Municipio*/}
-      <div className={`${flexInputContainer}`}>
+       {/*Option Select de id Municipio*/}
+          <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
             <label className={`${labelStyle}`}>Id Municipio</label>
             <select
               value={optionSelectid_Municipio}
               onChange={handleChange}
               //defaultValue={"1"}
-              onBlur={handleBlur}
+
               name="optionSelectid_Municipio"
               className="input-styles"
-              disabled={isRemove ? true : false}>
-                <option>Seleccione una Opcion</option>
-                <option value="1">Atlántida</option>
-                <option value="2">Colón</option>
-                <option value="3">Comayagua</option>
-                <option value="4">Copán</option>
-                <option value="5">Cortés</option>
-                <option value="6">Choluteca</option>
-                <option value="7">Paraíso</option>
-                <option value="8">Francisco Morazán</option>
-                <option value="9">Gracias a Dios</option>
-                <option value="10">Intibucá</option>
-                <option value="11">Islas de la Bahía</option>
-                <option value="12">La Paz</option>
-                <option value="13">Lempira</option>
-                <option value="14">Ocotepeque</option>
-                <option value="15">Olancho</option>
-                <option value="16">Santa Bárbara</option>
-                <option value="17">Valle</option>
-                <option value="18">Yoro</option>
+              disabled={isRemove ? true : false}
+            >
+              <option>Seleccione una Opcion</option>
+              {municipio.map(
+                ({ descripcion_Municipio, id_Municipio }) => (
+                  <option value={id_Municipio}>
+                    {descripcion_Municipio}
+                  </option>
+                )
+              )}
             </select>
           </div>
-            {touched.optionSelectid_Municipio && errors.optionSelectid_Municipio&& (
+          {touched.optionSelectid_Municipio &&
+            errors.optionSelectid_Municipio && (
               <ErrorMessage message={errors.optionSelectid_Municipio} />
             )}
-        </div> 
+        </div>
 
 
       {/*Text Box de descripcion Escuela*/}
@@ -164,63 +176,74 @@ function FormEscuela({
 
   
 
-        {/*Option Select id Red*/}
-        <div className={`${flexInputContainer}`}>
+        {/*Option Select de id Red*/}
+          <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
-            <label className={`${labelStyle}`}>id Red</label>
-              <select
-                value={optionSelectid_Red}
-                onChange={handleChange}
-                //defaultValue={optionSelectid_Red["1"]}
-                onBlur={handleBlur}
-                name="optionSelectid_Red"
-                className="input-styles"
-                disabled={isRemove ? true : false}>
-                  <option>Seleccione una Opcion</option>
-                  <option value="1">Coordinador De Red</option>
-                  <option value="2">Coordinador Departamental USAD</option>
-                  <option value="3">Supervison y Acompañamiento Docente</option>
-              </select>
+            <label className={`${labelStyle}`}>Id Red</label>
+            <select
+              value={optionSelectid_Red}
+              onChange={handleChange}
+              //defaultValue={"1"}
+
+              name="optionSelectid_Red"
+              className="input-styles"
+              disabled={isRemove ? true : false}
+            >
+              <option>Seleccione una Opcion</option>
+              {red.map(
+                ({ descripcion_Red, id_Red }) => (
+                  <option value={id_Red}>
+                    {descripcion_Red}
+                  </option>
+                )
+              )}
+            </select>
           </div>
-            {touched.optionSelectid_Red && errors.optionSelectid_Red && (
+          {touched.optionSelectid_Red &&
+            errors.optionSelectid_Red && (
               <ErrorMessage message={errors.optionSelectid_Red} />
             )}
         </div>
 
-  {/*Option Select de Estado*/}
-  <div className={`${flexInputContainer}`}>
+ {/*Option Select de Estado*/}
+ <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
             <label className={`${labelStyle}`}>Estado</label>
-              <select
-                value={optionSelectid_Estado}
-                onChange={handleChange}
-                //defaultValue={"1"}
-                defaultValue={optionSelectid_Estado[1]}
-                onBlur={handleBlur}
-                name="optionSelectid_Estado"
-                className="input-styles"
-                disabled={isRemove ? true: false}
-                >
-                  <option>Seleccione una Opcion</option>
-                  <option value="1">Activo</option>
-                  <option value="2">Inactivo</option>
-              </select>
+            <select
+              value={optionSelectid_Estado}
+              onChange={handleChange}
+              //defaultValue={"1"}
+              defaultValue={optionSelectid_Estado[1]}
+              onBlur={handleBlur}
+              name="optionSelectid_Estado"
+              className="input-styles"
+              disabled={isRemove ? true : false}
+            >
+              <option>Seleccione una Opcion</option>
+              <option value="1">Activo</option>
+              <option value="2">Inactivo</option>
+            </select>
           </div>
           {touched.optionSelectid_Estado && errors.optionSelectid_Estado && (
             <ErrorMessage message={errors.optionSelectid_Estado} />
           )}
-        </div>  
+        </div>
         <div className="flex items-right py-7 border-color-fondo align-center gap-3 justify-center">
-          <button 
+          <button
             type="submit"
             onClick={notamjs}
-           disabled={((
-              inputFielddescripcion_Escuela.length < 3|| inputFielddescripcion_Escuela.length > 50) 
-              )}
-            className="bg-color-fondo text-white font-bold px-4 py-2 rounded border border-color-fondo">
-            {!isRemove ? "Guardar" : "Eliminar"} 
-            </button>
+            disabled={
+
+              inputFielddescripcion_Escuela.length < 6 ||
+              inputFielddescripcion_Escuela.length > 50
+              
+            }
+            className="bg-color-fondo text-white font-bold px-4 py-2 rounded border border-color-fondo"
+          >
+            {!isRemove ? "Guardar" : "Eliminar"}
+          </button>
         </div>
+
 
         <ToastContainer
           position="top-right"

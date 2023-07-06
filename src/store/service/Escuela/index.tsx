@@ -5,6 +5,11 @@ export const escuelaApi = createApi({
   reducerPath: "escuelaApi",
   baseQuery: fetchBaseQuery({
     baseUrl: `http://localhost:4002/escuela`,
+
+        //hacer la auterizacion del Token
+        headers:{
+          "Authorization":`Bearer ${sessionStorage.getItem("token")}` 
+        }
   }),
   tagTypes: ["escuela"],
   endpoints: (builder) => ({

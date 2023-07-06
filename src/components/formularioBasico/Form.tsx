@@ -109,7 +109,7 @@ function Form({
           pauseOnFocusLoss
           draggable
           pauseOnHover
-          toastStyle={{ background: '#88cfe0'}} 
+          toastStyle={{ background: '#FFFFFF'}} 
         />
 
       </form>

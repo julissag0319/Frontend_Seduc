@@ -5,6 +5,15 @@ export const tipousuarioApi = createApi({
   reducerPath: "tipousuarioApi",
   baseQuery: fetchBaseQuery({
     baseUrl: `http://localhost:4002/tipo_usuario`,
+
+
+    //hacer la auterizacion del Token
+    headers:{
+      "Authorization":`Bearer ${sessionStorage.getItem("token")}` 
+    }
+
+
+
   }),
   tagTypes: ["tipo_usuario"],
   endpoints: (builder) => ({

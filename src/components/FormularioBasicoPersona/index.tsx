@@ -15,7 +15,9 @@ type FormularioBasicoPersonaP = {
     formTitle: string;
 };
 
-function FormularioBasicoPersona({ onSubmitHandler, formTitle}: FormularioBasicoPersonaP) {
+function FormularioBasicoPersona({ 
+  onSubmitHandler, formTitle}: 
+  FormularioBasicoPersonaP) {
   const { form } = useSetFormValues(); 
 
   const onSubmitForm = (
