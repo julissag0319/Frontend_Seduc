@@ -61,7 +61,7 @@ function FormUsuario({
   };
 
   const [persona, setpersona] = useState([
-    { id_Persona: 1, nombre_Persona: "Julissa" },
+    { id_Persona: 1, nombre_Persona: "Julissa",apellido_Persona:"Mendez" },
   ]);
   useEffect(() => {
     apiClient.get("/persona").then(({ data }) => {
@@ -86,19 +86,19 @@ function FormUsuario({
       >
         {/*Option Select id Persona*/}
         <div className={`${flexLabelInputs}`}>
-          <label className={`${labelStyle}`}>id Persona</label>
+          <label className={`${labelStyle}`}>Seleccione una Persona</label>
           <select
             value={optionSelectid_Persona}
             onChange={handleChange}
             //defaultValue={optionSelectid_Persona["1"]}
             onBlur={handleBlur}
             name="optionSelectid_Persona"
-            className="input-styles"
+            className="input-styles bg-primary-content"
             disabled={isRemove ? true : false}
           >
             <option>Selecione el id Persona</option>
             {persona.map(
-                ({ nombre_Persona, id_Persona }) => (
+                ({ nombre_Persona, apellido_Persona,id_Persona }) => (
                   <option value={id_Persona}>
                     {nombre_Persona}
                   </option>
@@ -110,14 +110,14 @@ function FormUsuario({
         {/*Text Box de Nombre Usuario*/}
         <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
-            <label className={`${labelStyle}`}>Nombre Usuario</label>
+            <label className={`${labelStyle}`}>Nombre de Usuario</label>
             <input
               value={inputFieldnombre_Usuario}
               onChange={handleChange}
               onBlur={handleBlur}
               type="text"
               name="inputFieldnombre_Usuario"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               placeholder="Nombre Usuario"
               disabled={isRemove ? true : false}
             />
@@ -134,14 +134,14 @@ function FormUsuario({
         {/*Text Box de contrasena del Usuario*/}
         <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
-            <label className={`${labelStyle}`}>contrasena del Usuario</label>
+            <label className={`${labelStyle}`}>Contraseña del Usuario</label>
             <input
               value={inputFieldcontrasena_Usuario}
               onChange={handleChange}
               onBlur={handleBlur}
               type="text"
               name="inputFieldcontrasena_Usuario"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               placeholder="Nombre Usuario"
               disabled={isRemove ? true : false}
             />
@@ -157,7 +157,7 @@ function FormUsuario({
 
         <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
-            <label className={`${labelStyle}`}>codigo de Recuperacion</label>
+            <label className={`${labelStyle}`}>Código de Recuperación</label>
             <input
               value={inputFieldcodigo_Recuperacion}
               onChange={handleChange}
@@ -178,14 +178,14 @@ function FormUsuario({
         {/*Option Select de Tipo Usuario*/}
         <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
-            <label className={`${labelStyle}`}>Tipo Usuario</label>
+            <label className={`${labelStyle}`}>Rol del Usuario</label>
             <select
               value={optionSelectid_Tipo_Usuario}
               onChange={handleChange}
               defaultValue={optionSelectid_Estado[1]}
               onBlur={handleBlur}
               name="optionSelectid_Tipo_Usuario"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               disabled={isRemove ? true : false}
             >
               <option>Selecione el Tipo de Usuario</option>
@@ -217,7 +217,7 @@ function FormUsuario({
               defaultValue={optionSelectid_Estado[1]}
               onBlur={handleBlur}
               name="optionSelectid_Estado"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               disabled={isRemove ? true : false}
             >
               <option>Selecione una Opcion</option>

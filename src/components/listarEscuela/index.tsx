@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import InputSearchField from "../inputSearchField";
 import LayoutCards from "../layout/LayoutCards";
 import BackButton from "@/shared/BackButton";
+import { isNull } from "util";
 
 type TableProps = {
   data: IEscuela[];
@@ -22,13 +23,12 @@ function TableList({ data }: TableProps) {
     <LayoutCards title="Listado de las Escuela">
       <InputSearchField
         onSubmitHandle={onSubmitHandle}
-        filterText="Filtrado por Nombre dela Escuela"
+        filterText="Filtrado por Nombre de la Escuela"
       />
 
       <div
-        className=" max-w-fullmx-auto rounded-lg shadow-md overflow-auto"
-        style={{ maxHeight: "700px" }}>
-        <table className="w-full table-fixed rounded-lg">
+        className="overflow-x-auto">
+        <table className="table">
           <thead className="overflow-y-auto border border-black text-center">
             <tr className="bg-white">
               <th className="w-2 py-2 px-7 border border-black">Id Escuela</th>
@@ -42,17 +42,16 @@ function TableList({ data }: TableProps) {
             </tr>
           </thead>
           <tbody className="overflow-y-auto border border-color-fondo text-center">
-            {data
-              ?.filter((value: IEscuela) =>
-                value.descripcion_Escuela.includes(searchValue)
-              )
+
+            {(data === undefined) ? null : Object.values(data)?.filter((value: IEscuela) =>
+              value?.descripcion_Escuela?.includes(searchValue)
+            )
               .map((item: IEscuela) => (
                 <tr
-                  className={`${
-                    item.id_Escuela && item.id_Escuela % 2 === 0
+                  className={`${item?.id_Escuela && item?.id_Escuela % 2 === 0
                       ? "bg-white"
                       : "bg-white"
-                  }`}
+                    }`}
                   key={item.id_Escuela}>
                   <td className="w-1/3 py-2 px-2 border border-black">{item.id_Escuela}</td>
                   <td className="w-1/3 py-2 px-4 border border-black">{item.id_Departamento}</td>
@@ -62,14 +61,14 @@ function TableList({ data }: TableProps) {
                   <td className="w-1/3 py-2 px-4 border border-black">{item.id_Red}</td>
                   <td className="w-1/3 py-2 px-4 border border-black">{item.id_Estado}</td>
                   <td className="w-1/3 py-0 px-1 space-x-1 space-y-1 border border-black align-bottom-center">
-                    <button 
+                    <button
                       type="button" className="bg-color-fondo font-bold text-white px-1 py-2 rounded"
                       onClick={() => {
                         Navigate(`/editar-escuela/${item.id_Escuela}`);
                       }}>
                       Editar
                     </button>
-                    <button 
+                    <button
                       type="button" className="bg-color-rojo font-bold text-white px-1 py-2 rounded"
                       onClick={() => {
                         Navigate(`/eliminar-escuela/${item.id_Escuela}`);

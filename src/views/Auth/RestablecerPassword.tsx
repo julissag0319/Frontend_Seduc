@@ -1,45 +1,55 @@
 import { apiClient } from "@/utilitarios/axios";
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate,useParams } from "react-router";
 import vertigo from "../../img/LOGO_USAD (1).png"
 import backgroundImage from "../../assets/undraw_teacher_re_sico.svg"
 
 
-export const Login = () => {
+export const RestablecerPassword = () => {
+
+
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [nombre_Usuario, setNombre_Usuario] = useState("");
+ 
   const [contrasena, setContrasena] = useState("");
+  const [confirmarcontrasena, setConfirmarContrasena] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { pin } = useParams();
   const login = () => {
-    console.log({ nombre_Usuario, contrasena });
+
+    
+    console.log(pin);
+    
+    const ruta = "auth/restart_password/"+ pin ;
     apiClient
-      .post("auth/login", { nombre_Usuario, contrasena })
+      .put(ruta, { 
+        "password": contrasena,
+        "confirmar_password": confirmarcontrasena
+       })
       .then(({ data }) => {
-        if (data.error || !data.token) {
+        console.log("Data: ",data);
+        if (data == "Ocurrio un Error" || data == "Las contraseñas deben coincidir" || data == "Ingrese una contraseña segura") {
+            setError(data);
           throw new Error(
-            data.error || "Ups ocurrio un error vuelve a intentar mas tarde"
+            data || "Ups ocurrio un error vuelve a intentar mas tarde"
           );
         }
-        sessionStorage.setItem("token", data.token);
-        sessionStorage.setItem("usuario", JSON.stringify(data.usuario));
-
-        const id = data.usuario.id_Tipo_Usuario;
-        console.log("id", id);
-        sessionStorage.setItem("id_Rol", id);
+       //console.log(data)
         //sessionStorage.setItem("TipoUser", TipoUser.descripcion_Tipo_Usuario);
         //  console.log(data.descripcion_Tipo_Usuario);
-        navigate("/");
+        navigate("/login");
       })
       .catch((error) => {
-        setError(error.response.data.error);
+        console.log(error)
+       
       });
+      
   };
 
  
   return (//fondo
 
- 
+
 
     <div className="grid place-items-letf w-full h-screen bg-white">
 
@@ -88,25 +98,44 @@ export const Login = () => {
       <img src={vertigo} alt="Vertigo " />
 
 
-      <div className=" min-h-screen bg-accent-content">
+      <div className="min-h-screen bg-accent-content">
         <div className="hero-content flex-col lg:flex-row-reverse  ">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold text-black">!Inicio de Sesion USAD!</h1>
-            <p className="py-6 text-black">Bienvenido (a) al control de redes de centros educativos </p>
+            <h1 className="text-5xl font-bold text-black">Restablece tu Contraseña</h1>
+            <p className="py-6 text-black">
+                <ul class="nav justify-content-center  ">
+                    <li class="nav-item">
+                    Mínimo 8 caracteres.
+                    </li>
+                    <li class="nav-item">
+                    Debe contener al menos una letra mayúscula y minúscula.
+                    </li>
+                    <li class="nav-item">
+                    Debe contener al menos un carácter especial y un número.
+                    </li>
+                </ul>
+            </p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-200">
             <div className="card-body">
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-white">Nombre de Usuario</span>
-                </label>
-                <input type="text" onChange={({ target }) => setNombre_Usuario(target.value)} placeholder="Nombre de Usuario" className="input input-bordered" />
-              </div>
-              <div className="form-control">
+              
+              
+            <div className="form-control">
                 <label className="label">
                   <span className="label-text text-white">Contraseña</span>
                 </label>
                 <input type={passwordVisible ? "text" : "password"} placeholder="Contraseña" className="input input-bordered" onChange={({ target }) => setContrasena(target.value)} />
+
+              
+
+
+               
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-white">Confirmar Contraseña</span>
+                </label>
+                <input type={passwordVisible ? "text" : "password"} placeholder="Contraseña" className="input input-bordered" onChange={({ target }) => setConfirmarContrasena(target.value)} />
 
                 <div className="form-control">
                   <label className="cursor-pointer label">
@@ -116,12 +145,15 @@ export const Login = () => {
                 </div>
 
 
-                <label className="">
-                  <a href="/forgot-password" className="label-text-alt link-hover link text-primary-content">¿Olvido su Contraseña?</a>
-                </label>
+               
               </div>
+              
+
+                
+              
+
               <div className="form-control mt-6">
-                <button className="btn btn-info"  onClick={login}>Iniciar Sesión</button>
+                <button className="btn btn-info"  onClick={login}>Verificar Cuenta</button>
               </div>
             </div>
           </div>

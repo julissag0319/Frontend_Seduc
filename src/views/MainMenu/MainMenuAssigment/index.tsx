@@ -8,7 +8,7 @@ import {
 
 
 
-function MainMenu() {
+function MainMenuAssigment() {
   const user = JSON.parse(sessionStorage.getItem("usuario"));
   const msj = `Bienvenido (a) ${user.nombre_Usuario}, Estas en la pantalla Menu Principal.` 
 
@@ -36,9 +36,9 @@ function MainMenu() {
       iconRight="Otro icono">
       <div className="h-auto">
         <BasicLayout
-          title="Menu Principal"
-          titleAdd="Reportes Estadistico"
-          titleList="Modulo Administrativo"
+          title="Reporte Estadistico"
+          titleAdd="Datos Graficos"
+          titleList="Exportar a Excel"
           navigateAddTo="/main-menu-assigment"
           navigateListTo="/main-menu-admin"
         />
@@ -47,4 +47,4 @@ function MainMenu() {
   );
 }
 
-export default MainMenu;
+export default MainMenuAssigment;

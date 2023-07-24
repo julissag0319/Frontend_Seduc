@@ -8,11 +8,17 @@ import { Routes, Route } from "react-router-dom";
   /**Imports Vistas de Menus Principales*/
 }
 import MainMenu from "./views/MainMenu/MainMenu";
+import MainMenuAssigment from "./views/MainMenu/MainMenuAssigment/index";
 import MainMenuAdmin from "./views/MainMenu/MainMenuAdmin";
+
+
+{/**Imports Estadistica */}
+import EstadisticaGrafica from "./views/EstadisticaGrafica/index"
 
 {
   /**Imports 1 Menu Principal y CRUD de Departamentos*/
 }
+
 import MainDepartamento from "./views/Departamento/MenuDepartamento";
 import NuevoDepartamento from "./views/Departamento/NuevoDepartamento";
 import ListarDepartamento from "./views/Departamento/ListarDepartamento";
@@ -81,6 +87,9 @@ import EliminarEscuela from "./views/Escuela/EliminarEscuela";
   /**Imports 7 Vistas de Menu Principal y CRUD de Municipio*/
 }
 import MainUsuario from "./views/Usuario/MenuUsuario";
+import {ForgotPassword} from "./views/Auth/ForgotPassword";
+import {VerificarPin} from "./views/Auth/VerificarPin";
+import {RestablecerPassword} from "./views/Auth/RestablecerPassword";
 import NuevoUsuario from "./views/Usuario/NuevoUsuario";
 import ListarUsuario from "./views/Usuario/ListarUsuario";
 import EditarUsuario from "./views/Usuario/EditarUsuario";
@@ -88,6 +97,7 @@ import EliminarUsuario from "./views/Usuario/EliminarUsuario";
 import { Login } from "./views/Login";
 
 import { PrivateRoute } from "./components/PrivateRoute";
+import { HasRole } from './roles/hasRoles';
 
 
 
@@ -106,6 +116,56 @@ function App() {
           <PrivateRoute>
             <MainMenu />
           </PrivateRoute>
+        }
+      />
+
+<Route
+        index={true}
+        path="/estadistica-grafica"
+        element={
+          <PrivateRoute>
+            <EstadisticaGrafica />
+          </PrivateRoute>
+        }
+      />
+
+<Route
+        index={true}
+        path="/main-menu-assigment"
+        element={
+          <PrivateRoute>
+            <MainMenuAssigment />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        
+        path="/forgot-password"
+        element={
+          
+            <ForgotPassword />
+          
+        }
+      />
+
+<Route
+        
+        path="/verficar-pin"
+        element={
+          
+            <VerificarPin />
+          
+        }
+      />
+
+<Route
+        
+        path="/restablecer-password/:pin"
+        element={
+          
+            <RestablecerPassword />
+          
         }
       />
       <Route
@@ -128,8 +188,9 @@ function App() {
       />
 ////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////
       {/**#1 Departamentos */}
+
       <Route
         path="/departamento"
         element={
@@ -423,8 +484,8 @@ function App() {
         }
       />
 
-{/**#1 Escuela */}
-<Route
+      {/**#1 Escuela */}
+      <Route
         path="/escuela"
         element={
           <PrivateRoute>

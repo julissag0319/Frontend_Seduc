@@ -29,8 +29,8 @@ export const store = configureStore({
       tipocargoApi.middleware,
       municipioApi.middleware,
       personaApi.middleware,
-      redApi.middleware,
       usuarioApi.middleware,
+      redApi.middleware,
       escuelaApi.middleware,
     ]),
 });

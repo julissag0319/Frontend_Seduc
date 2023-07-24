@@ -4,7 +4,7 @@ import TableListaPersona from "@/components/listarPersona";
 
 function ListaPersona() {
   const { data } = useObtenerTodasPersonaQuery({});
-
+console.log(data)
   return (
     <LayoutContent
       title="Bienvenido(a) Estas en la Pantalla: Listar Pantalla/Persona"

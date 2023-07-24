@@ -56,7 +56,7 @@ function Form({
                 onBlur={handleBlur}
                 type="text"
                 name="inputField"
-                className="input-styles"
+                className="input-styles bg-primary-content"
                 placeholder="Descripcion"
                 disabled={isRemove ? true : false}
               />
@@ -77,7 +77,7 @@ function Form({
                 defaultValue={optionSelect[1]}
                 onBlur={handleBlur}
                 name="optionSelect"
-                className="input-styles"
+                className="input-styles bg-primary-content"
                 disabled={isRemove ? true: false}
                 >
                   <option>Seleccione una Opcion</option>

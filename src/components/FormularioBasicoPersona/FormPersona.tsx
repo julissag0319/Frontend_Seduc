@@ -93,14 +93,14 @@ function FormPersona({
         {/*Text Box de Nombre Persona*/}
         <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
-            <label className={`${labelStyle}`}>Nombre Persona</label>
+            <label className={`${labelStyle}`}>Nombre</label>
             <input
               value={inputFieldnombre_Persona}
               onChange={handleChange}
               onBlur={handleBlur}
               type="text"
               name="inputFieldnombre_Persona"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               placeholder="Nombre Persona"
               disabled={isRemove ? true : false}
             />
@@ -114,14 +114,14 @@ function FormPersona({
         {/*Text Box de Apellido Persona*/}
         <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
-            <label className={`${labelStyle}`}>Apellido Persona</label>
+            <label className={`${labelStyle}`}>Apellido</label>
             <input
               value={inputFieldapellido_Persona}
               onChange={handleChange}
               onBlur={handleBlur}
               type="text"
               name="inputFieldapellido_Persona"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               placeholder="Apellido Persona"
               disabled={isRemove ? true : false}
             />
@@ -135,14 +135,14 @@ function FormPersona({
         {/*Text Box de Identidad Persona*/}
         <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
-            <label className={`${labelStyle}`}>Identidad Persona</label>
+            <label className={`${labelStyle}`}>Identidad</label>
             <input
               value={inputFieldidentidad_Persona}
               onChange={handleChange}
               onBlur={handleBlur}
               type="text"
               name="inputFieldidentidad_Persona"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               placeholder="Identidad Persona"
               disabled={isRemove ? true : false}
             />
@@ -156,14 +156,14 @@ function FormPersona({
         {/*Text Box de Telefono Persona*/}
         <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
-            <label className={`${labelStyle}`}>Telefono de La Persona</label>
+            <label className={`${labelStyle}`}>Telefono</label>
             <input
               value={inputFieldtelefono_Persona}
               onChange={handleChange}
               onBlur={handleBlur}
               type="text"
               name="inputFieldtelefono_Persona"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               placeholder="Telefono Persona"
               disabled={isRemove ? true : false}
             />
@@ -177,14 +177,14 @@ function FormPersona({
         {/*Text Box de Correo Persona*/}
         <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
-            <label className={`${labelStyle}`}>Correo Persona</label>
+            <label className={`${labelStyle}`}>Correo Electrónico</label>
             <input
               value={inputFieldcorreo_Persona}
               onChange={handleChange}
               onBlur={handleBlur}
               type="text"
               name="inputFieldcorreo_Persona"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               placeholder="Correo Persona"
               disabled={isRemove ? true : false}
             />
@@ -198,14 +198,14 @@ function FormPersona({
         {/*Option Select de id Departamento*/}
         <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
-            <label className={`${labelStyle}`}>Id Departamento</label>
+            <label className={`${labelStyle}`}>Departamento</label>
             <select
               value={optionSelectid_Departamento}
               onChange={handleChange}
               //defaultValue={"1"}
 
               name="optionSelectid_Departamento"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               disabled={isRemove ? true : false}
             >
               <option>Seleccione una Opcion</option>
@@ -227,14 +227,14 @@ function FormPersona({
         {/*Option Select id tipo cargo*/}
         <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
-            <label className={`${labelStyle}`}>Id Tipo Cargo</label>
+            <label className={`${labelStyle}`}>Cargo</label>
             <select
               value={optionSelectid_Tipo_Cargo}
               onChange={handleChange}
               //defaultValue={optionSelectid_Tipo_Cargo["1"]}
               onBlur={handleBlur}
               name="optionSelectid_Tipo_Cargo"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               disabled={isRemove ? true : false}
             >
               <option>Seleccione una Opcion</option>
@@ -260,7 +260,7 @@ function FormPersona({
               defaultValue={optionSelectid_Estado[1]}
               onBlur={handleBlur}
               name="optionSelectid_Estado"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               disabled={isRemove ? true : false}
             >
               <option>Seleccione una Opcion</option>

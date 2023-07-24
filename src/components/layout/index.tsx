@@ -9,14 +9,24 @@ type LayoutProps = {
   children: ReactNode;
   title: string;
   icon: string;
+  rol:string;
   iconRight: string;
 };
 
-function LayoutContent({ children, title}: LayoutProps) {
+function LayoutContent({ children, title,rol}: LayoutProps) {
   const flexStyle = `flex items-center justify-between w-full`;
   const Navigate = useNavigate();
+ 
+
+  //console.log(user);
+ 
+  const CerrarSesion = () => {
+      sessionStorage.clear();
+      Navigate("/login");
+  };
+
   return (
-    <div className="min-h-screen min-w-full items-center gap-7 ">
+    <div className="min-h-screen min-w-full items-center gap-7 bg-primary-content">
     <img src={img} alt=""width="200" height="200" ></img>
     
       {/** header */}
@@ -33,10 +43,16 @@ function LayoutContent({ children, title}: LayoutProps) {
             <p className="font-bold text-white">{title}</p>
           </div>
 
-          <div className="flex items-center gap-7" style={{display:"flex", alignItems:"center", gap:"3px"}}>
+          <div className="flex items-center gap-7 " style={{display:"flex", alignItems:"center", gap:"3px"}}>
               <FaUserCog style={{color: 'white' , fontSize : '30px', margin : 'right'}}/>  
-            <h1 className="font-bold text-white" >Administrador</h1>
+            <h1 className="font-bold text-white" >{rol ? rol : sessionStorage.getItem("NOMBRE_ROL")}</h1>
+            <button
+          onClick={CerrarSesion}
+          className="font-bold text-white bg-error p-2 rounded-md border-2">
+          Cerrar Sesion
+        </button>
           </div>
+         
         </div>
       </nav>
 

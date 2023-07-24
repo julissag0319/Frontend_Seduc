@@ -62,7 +62,7 @@ function FormRed({
             onBlur={handleBlur}
             type="text"
             name="inputFieldcodigo_Red"
-            className="input-styles"
+            className="input-styles bg-primary-content"
             placeholder="Codigo Red"
             disabled={isRemove ? true : false}
           />
@@ -84,7 +84,7 @@ function FormRed({
               onBlur={handleBlur}
               type="text"
               name="inputFielddescripcion_Red"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               placeholder="Descripcion Red"
               disabled={isRemove ? true : false}
             />
@@ -105,7 +105,7 @@ function FormRed({
                 defaultValue={optionSelectid_Estado[1]}
                 onBlur={handleBlur}
                 name="optionSelectid_Estado"
-                className="input-styles"
+                className="input-styles bg-primary-content"
                 disabled={isRemove ? true: false}
                 >
                   <option>Seleccione una Opcion</option>

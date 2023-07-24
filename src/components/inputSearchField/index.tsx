@@ -17,11 +17,11 @@ function InputSearchField({ onSubmitHandle, filterText }: FormProps) {
     <div className="my-5">
       <form
         onSubmit={handleSubmit}
-        className="flex items-center shadow-md p-3 space-x-5 border border-color-fondo rounded-l1g">
+        className="flex items-center shadow-md p-3 space-x-5 border border-color-fondo rounded-l1g bg-primary-content bg-white">
         <label className="block mb-2 font-bold text-black">
           {filterText}
         </label>
-        <input className="input-styles" ref={inputRef} type="text bg-white" />
+        <input className="input-styles bg-primary-content" ref={inputRef} type="text bg-white" />
       </form>
     </div>
   );

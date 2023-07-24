@@ -17,7 +17,7 @@ function TableList({ data }: TableProps) {
   };
 
   const Navigate = useNavigate();
-
+console.log(data);
   return (
     <LayoutCards title="Listado de los Municipio ">
       <InputSearchField
@@ -37,9 +37,8 @@ function TableList({ data }: TableProps) {
             </tr>
           </thead>
           <tbody className="overflow-y-auto border border-black text-center">
-            {data
-              ?.filter((value: IMunicipio) =>
-                value.descripcion_Municipio.includes(searchValue)
+            {data?.filter((value: IMunicipio) =>
+                value?.descripcion_Municipio.includes(searchValue)
               )
               .map((item: IMunicipio) => (
                 <tr

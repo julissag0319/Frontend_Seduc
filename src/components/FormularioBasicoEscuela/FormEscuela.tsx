@@ -95,14 +95,14 @@ const [red, setRed] = useState([
       {/*Option Select de id Departamento*/}
           <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
-            <label className={`${labelStyle}`}>Id Departamento</label>
+            <label className={`${labelStyle}`}>Departamento</label>
             <select
               value={optionSelectid_Departamento}
               onChange={handleChange}
               //defaultValue={"1"}
 
               name="optionSelectid_Departamento"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               disabled={isRemove ? true : false}
             >
               <option>Seleccione una Opcion</option>
@@ -126,14 +126,14 @@ const [red, setRed] = useState([
        {/*Option Select de id Municipio*/}
           <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
-            <label className={`${labelStyle}`}>Id Municipio</label>
+            <label className={`${labelStyle}`}>Municipio</label>
             <select
               value={optionSelectid_Municipio}
               onChange={handleChange}
               //defaultValue={"1"}
 
               name="optionSelectid_Municipio"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               disabled={isRemove ? true : false}
             >
               <option>Seleccione una Opcion</option>
@@ -156,14 +156,14 @@ const [red, setRed] = useState([
       {/*Text Box de descripcion Escuela*/}
       <div className={`${flexInputContainer}`}>
         <div className={`${flexLabelInputs}`}>
-          <label className={`${labelStyle}`}>descripcion Escuela</label>
+          <label className={`${labelStyle}`}>Descripcion de la Escuela</label>
           <input
             value={inputFielddescripcion_Escuela}
             onChange={handleChange}
             onBlur={handleBlur}
             type="text"
             name="inputFielddescripcion_Escuela"
-            className="input-styles"
+            className="input-styles bg-primary-content"
             placeholder="descripcion Escuela"
             disabled={isRemove ? true : false}
           />
@@ -179,14 +179,14 @@ const [red, setRed] = useState([
         {/*Option Select de id Red*/}
           <div className={`${flexInputContainer}`}>
           <div className={`${flexLabelInputs}`}>
-            <label className={`${labelStyle}`}>Id Red</label>
+            <label className={`${labelStyle}`}>Red</label>
             <select
               value={optionSelectid_Red}
               onChange={handleChange}
               //defaultValue={"1"}
 
               name="optionSelectid_Red"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               disabled={isRemove ? true : false}
             >
               <option>Seleccione una Opcion</option>
@@ -216,7 +216,7 @@ const [red, setRed] = useState([
               defaultValue={optionSelectid_Estado[1]}
               onBlur={handleBlur}
               name="optionSelectid_Estado"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               disabled={isRemove ? true : false}
             >
               <option>Seleccione una Opcion</option>
