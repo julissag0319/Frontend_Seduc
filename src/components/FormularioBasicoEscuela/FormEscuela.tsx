@@ -57,11 +57,10 @@ function FormEscuela({
         optionSelectid_Estado);
   };
 /////////////////////////////////////////////////////////////////////
-  const [departamento, setdepartamento] = useState([
-    { id_Departamento: 1, descripcion_Departamento: "Atlantidad" },
-  ]);
+  const [departamento, setdepartamento] = useState([]);
   useEffect(() => {
     apiClient.get("/departamento").then(({ data }) => {
+      console.log("data depto: ",data)
       setdepartamento(data);
     });
 
@@ -75,15 +74,11 @@ function FormEscuela({
       });   
   }, []);
 ///////////////////////////////////////////////////////////////////
-const [municipio, setMunicipio] = useState([
-  { id_Municipio: 1, descripcion_Municipio: "Supervision" },
-]);
+const [municipio, setMunicipio] = useState([]);
 
 ///////////////////////////////////////////////////////////////////
 
-const [red, setRed] = useState([
-  { id_Red: 1, descripcion_Red: "Supervision" },
-]);
+const [red, setRed] = useState([]);
 
 ///////////////////////////////////////////////////////////////////
   return (

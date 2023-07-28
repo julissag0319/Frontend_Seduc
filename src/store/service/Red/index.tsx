@@ -23,6 +23,11 @@ export const redApi = createApi({
       providesTags: ["red"],
     }),
 
+    ObtenerTodasRedesEscuela: builder.query({
+      query: () => "/cantidad_redes",
+      providesTags: ["red"],
+    }),
+
     ObtenerUnaRed: builder.query({
       query: (id: string) => ({
         url: `/red/${id}`,
@@ -70,5 +75,5 @@ export const {
   useNuevaRedMutation,
   useEditarRedMutation,
   useEliminarRedMutation,
-
+  useObtenerTodasRedesEscuelaQuery
 } = redApi;

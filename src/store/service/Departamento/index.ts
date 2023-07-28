@@ -19,9 +19,16 @@ export const departamentoApi = createApi({
       query: () => "/",
       providesTags: ["departamento"],
     }),
+
     ObtenerUnDepartamento: builder.query({
       query: (id: string) => ({
         url: `/departamento/${id}`,
+      }),
+      providesTags: ["departamento"],
+    }),
+    ObtenerCantidadEscuelasPorDepartamento: builder.query({
+      query: () => ({
+        url: `/cantidad_departamentos`,
       }),
       providesTags: ["departamento"],
     }),
@@ -59,8 +66,9 @@ export const departamentoApi = createApi({
 
 export const {
   useObtenerTodoDepartamentoQuery,
+  useObtenerCantidadEscuelasPorDepartamentoQuery,
   useObtenerUnDepartamentoQuery,
   useNuevoDepartamentoMutation,
   useEditarDepartamentoMutation,
-  useEliminarDepartamentoMutation,
+  useEliminarDepartamentoMutation
 } = departamentoApi;

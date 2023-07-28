@@ -39,8 +39,8 @@ function MainMenuAssigment() {
           title="Reporte Estadistico"
           titleAdd="Datos Graficos"
           titleList="Exportar a Excel"
-          navigateAddTo="/main-menu-assigment"
-          navigateListTo="/main-menu-admin"
+          navigateAddTo="/estadistica/estadistica-grafica"
+          navigateListTo="/estadistica/escuelas-activas"
         />
       </div>
     </LayoutContent>

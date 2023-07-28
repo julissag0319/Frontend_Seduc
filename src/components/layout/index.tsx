@@ -31,21 +31,22 @@ function LayoutContent({ children, title,rol}: LayoutProps) {
     
       {/** header */}
       
-      <nav className={`${flexStyle} bg-color-fondo p-1 px-2 min-h-[9vh]`}>
+      <nav className={`${flexStyle} bg-color-fondo p-1 px-2 min-h-[9vh] `}>
         <div className={`${flexStyle}`}>
          
          
           <div style={{ display:"flex", alignItems:"center", gap:"2px"}}>
             <div className="cards hover:cursor-pointer"
               onClick={() => Navigate("/main-menu")}>
-                <AiOutlineDoubleLeft style={{color: 'white' , fontSize : '30px'}}/>  
+                <AiOutlineDoubleLeft style={{color: 'black' , fontSize : '30px'}}/>  
             </div>
-            <p className="font-bold text-white">{title}</p>
+            <p className="font-bold text-black">{title}</p>
           </div>
 
           <div className="flex items-center gap-7 " style={{display:"flex", alignItems:"center", gap:"3px"}}>
-              <FaUserCog style={{color: 'white' , fontSize : '30px', margin : 'right'}}/>  
-            <h1 className="font-bold text-white" >{rol ? rol : sessionStorage.getItem("NOMBRE_ROL")}</h1>
+           
+            <h1 className="font-bold text-black" >{rol ? rol : sessionStorage.getItem("NOMBRE_ROL")}</h1>
+            <FaUserCog style={{color: 'black' , fontSize : '30px', margin : 'right'}}/> 
             <button
           onClick={CerrarSesion}
           className="font-bold text-white bg-error p-2 rounded-md border-2">
@@ -63,8 +64,8 @@ function LayoutContent({ children, title,rol}: LayoutProps) {
 
       {/** footer */}
       <footer className="font text-center items-center justify-center p-1 w-full bg-color-fondo">
-        <p className="text-white"> &copy; 2023 Copyright  Secretaría de Educación</p>
-        <p className="text-white">Unidad de Supervision y Acompañamiento Docente  USAD</p> 
+        <p className="text-black"> &copy; 2023 Copyright  Secretaría de Educación</p>
+        <p className="text-black">Unidad de Supervision y Acompañamiento Docente  USAD</p> 
       </footer>
     </div>
   );

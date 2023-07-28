@@ -60,9 +60,7 @@ function FormUsuario({
     );
   };
 
-  const [persona, setpersona] = useState([
-    { id_Persona: 1, nombre_Persona: "Julissa",apellido_Persona:"Mendez" },
-  ]);
+  const [persona, setpersona] = useState([]);
   useEffect(() => {
     apiClient.get("/persona").then(({ data }) => {
       setpersona(data); //actualizar la variable del depart al valor que retorna la api
@@ -164,7 +162,7 @@ function FormUsuario({
               onBlur={handleBlur}
               type="text"
               name="inputFieldcodigo_Recuperacion"
-              className="input-styles"
+              className="input-styles bg-primary-content"
               placeholder="codigo de Recuperacion"
               disabled={isRemove ? true : false}
             />

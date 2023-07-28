@@ -21,6 +21,10 @@ export const personaApi = createApi({
       query: () => "/",
       providesTags: ["persona"],
     }),
+    ObtenerCantidadSupervisores: builder.query({
+      query: () => "/cantidad_supervisores",
+      providesTags: ["persona"],
+    }),
     ObtenerUnaPersona: builder.query({
       query: (id: string) => ({
         url: `/persona/${id}`,
@@ -68,5 +72,5 @@ export const {
   useNuevaPersonaMutation,
   useEditarPersonaMutation,
   useEliminarPersonaMutation,
-
+  useObtenerCantidadSupervisoresQuery
 } = personaApi;

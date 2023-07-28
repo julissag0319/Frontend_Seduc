@@ -14,7 +14,7 @@ import MainMenuAdmin from "./views/MainMenu/MainMenuAdmin";
 
 {/**Imports Estadistica */}
 import EstadisticaGrafica from "./views/EstadisticaGrafica/index"
-
+import EstadisticaEscuelasActivas from "./views/Estadisticas/ListadoEscuelas"
 {
   /**Imports 1 Menu Principal y CRUD de Departamentos*/
 }
@@ -97,7 +97,8 @@ import EliminarUsuario from "./views/Usuario/EliminarUsuario";
 import { Login } from "./views/Login";
 
 import { PrivateRoute } from "./components/PrivateRoute";
-import { HasRole } from './roles/hasRoles';
+//import { HasRole } from './roles/hasRoles';
+
 
 
 
@@ -121,10 +122,20 @@ function App() {
 
 <Route
         index={true}
-        path="/estadistica-grafica"
+        path="estadistica/estadistica-grafica"
         element={
           <PrivateRoute>
             <EstadisticaGrafica />
+          </PrivateRoute>
+        }
+      />
+
+<Route
+        index={true}
+        path="/estadistica/escuelas-activas"
+        element={
+          <PrivateRoute>
+            <EstadisticaEscuelasActivas />
           </PrivateRoute>
         }
       />

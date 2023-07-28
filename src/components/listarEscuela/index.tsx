@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import InputSearchField from "../inputSearchField";
 import LayoutCards from "../layout/LayoutCards";
 import BackButton from "@/shared/BackButton";
-import { isNull } from "util";
 
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 type TableProps = {
   data: IEscuela[];
 };
@@ -26,10 +26,23 @@ function TableList({ data }: TableProps) {
         filterText="Filtrado por Nombre de la Escuela"
       />
 
+<br/>
+
+<ReactHTMLTableToExcel
+                    id="test-table-xls-button"
+                    className="btn  btn-success"
+                    table="ListadoEscuelas"
+                    filename="tablexls"
+                    sheet="tablexls"
+                    buttonText="Descargar Lista de Escuelas Activas"/>
+
+                    <br/>
+                    <br/>
+
       <div
         className="overflow-x-auto">
-        <table className="table">
-          <thead className="overflow-y-auto border border-black text-center">
+        <table className="table" id="ListadoEscuelas">
+          <thead className="overflow-y-auto border border-black text-black text-center">
             <tr className="bg-white">
               <th className="w-2 py-2 px-7 border border-black">Id Escuela</th>
               <th className="w-1/4 py-2 px-4 border border-black">Id Departamento</th>
@@ -41,7 +54,7 @@ function TableList({ data }: TableProps) {
               <th className="w-1/3 py-6 px-12 border border-black">Opcion</th>
             </tr>
           </thead>
-          <tbody className="overflow-y-auto border border-color-fondo text-center">
+          <tbody className="overflow-y-auto border border-color-fondo text-center text-black">
 
             {(data === undefined) ? null : Object.values(data)?.filter((value: IEscuela) =>
               value?.descripcion_Escuela?.includes(searchValue)
@@ -62,7 +75,7 @@ function TableList({ data }: TableProps) {
                   <td className="w-1/3 py-2 px-4 border border-black">{item.id_Estado}</td>
                   <td className="w-1/3 py-0 px-1 space-x-1 space-y-1 border border-black align-bottom-center">
                     <button
-                      type="button" className="bg-color-fondo font-bold text-white px-1 py-2 rounded"
+                      type="button" className="bg-blue-700 font-bold text-white px-1 py-2 rounded"
                       onClick={() => {
                         Navigate(`/editar-escuela/${item.id_Escuela}`);
                       }}>

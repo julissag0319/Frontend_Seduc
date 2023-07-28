@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import InputSearchField from "../inputSearchField";
 import LayoutCards from "../layout/LayoutCards";
 import BackButton from "@/shared/BackButton";
-
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 type TableProps = {
   data: IRed[];
 };
@@ -20,6 +20,13 @@ function TableList({ data }: TableProps) {
 
   return (
     <LayoutCards title="Listado de las Red">
+      <ReactHTMLTableToExcel
+                    id="test-table-xls-button"
+                    className="btn  btn-success"
+                    table="redTable"
+                    filename="Listado de Redes"
+                    sheet="tablexls"
+                    buttonText="Descargar Lista de Redes"/>
       <InputSearchField
         onSubmitHandle={onSubmitHandle}
         filterText="Filtrado por Nombre del Red"
@@ -28,7 +35,7 @@ function TableList({ data }: TableProps) {
       <div
         className=" max-w-fullmx-auto rounded-lg shadow-md overflow-auto"
         style={{ maxHeight: "250px" }}>
-        <table className="w-full table-fixed rounded-lg">
+        <table className="w-full table-fixed rounded-lg" id="redTable">
           <thead className="overflow-y-auto border border-black text-center">
             <tr className="bg-white">
              <th className="w-1/3 py-2 px-4 border border-black">Id</th>

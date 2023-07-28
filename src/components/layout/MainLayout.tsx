@@ -57,9 +57,9 @@ function MainLayout({
   const Navigate = useNavigate();
   console.log(sessionStorage.getItem("NOMBRE_ROL"));
   return (
-    <div className="h-3/4 flex justify-center items-center border border-white rounded-lg">
+    <div className="h-3/4 flex justify-center items-center border border-black rounded-lg">
       <div className="h-full max-w-7xl bg-white rounded-md p-8">
-        <h2 className="pb-7 text-center font-bold text-2xl">{title}</h2>
+        <h2 className="pb-7 text-center font-bold text-2xl text-white">{title}</h2>
         <div className="flex flex-wrap justify-center items-start h-full justify-items-center">
 
           {/*Boton #1 Menu Principal Departamento*/}
@@ -67,9 +67,9 @@ function MainLayout({
             <div
               className="cards-menu-div hover:cursor-pointer border border-color-fondo rounded-lg disable-div"
               onClick={() => Navigate(navigate1)}>
-              <BiBookReader style={{ color: 'FFFFFF', fontSize: '50px', margin: 'auto' }} />
+              <BiBookReader style={{ color: 'black', fontSize: '50px', margin: 'auto' }} />
               <br></br>
-              <p className="font-bold text-xl text-white">{title1}</p>
+              <p className="font-bold text-xl text-black">{title1}</p>
             </div>
           </HasRole>
 
@@ -78,9 +78,9 @@ function MainLayout({
             <div
               className="cards-menu-div hover:cursor-pointer border border-color-fondo rounded-lg"
               onClick={() => Navigate(navigate2)}>
-              <IoPeopleCircle style={{ color: 'FFFFFF', fontSize: '50px', margin: 'auto' }} />
+              <IoPeopleCircle style={{ color: 'black', fontSize: '50px', margin: 'auto' }} />
               <br></br>
-              <p className="font-bold text-xl text-white">{title2}</p>
+              <p className="font-bold text-xl text-black">{title2}</p>
             </div>
             </HasRole>
 
@@ -91,9 +91,9 @@ function MainLayout({
             <div
               className="cards-menu-div hover:cursor-pointer border border-color-fondo rounded-lg"
               onClick={() => Navigate(navigate6)}>
-              <BsPeopleFill style={{ color: 'FFFFFF', fontSize: '50px', margin: 'auto' }} />
+              <BsPeopleFill style={{ color: 'black', fontSize: '50px', margin: 'auto' }} />
               <br></br>
-              <p className="font-bold text-xl text-white">{title6}</p>
+              <p className="font-bold text-xl text-black">{title6}</p>
             </div>
 
 
@@ -103,9 +103,9 @@ function MainLayout({
             <div
               className="cards-menu-div hover:cursor-pointer border border-color-fondo rounded-lg"
               onClick={() => Navigate(navigate3)}>
-              <HiUserCircle style={{ color: 'FFFFFF', fontSize: '50px', margin: 'auto' }} />
+              <HiUserCircle style={{ color: 'black', fontSize: '50px', margin: 'auto' }} />
               <br></br>
-              <p className="font-bold text-xl text-white">{title3}</p>
+              <p className="font-bold text-xl text-black">{title3}</p>
             </div>
           </HasRole>
           {/*Boton #4 Menu Principal Municipio*/}
@@ -113,19 +113,19 @@ function MainLayout({
             <div
               className="cards-menu-div hover:cursor-pointer border border-color-fondo rounded-lg"
               onClick={() => Navigate(navigate4)}>
-              <FiMapPin style={{ color: 'FFFFFF', fontSize: '50px', margin: 'auto' }} />
+              <FiMapPin style={{ color: 'black', fontSize: '50px', margin: 'auto' }} />
               <br></br>
-              <p className="font-bold text-xl text-white">{title4}</p>
+              <p className="font-bold text-xl text-black">{title4}</p>
             </div>
           </HasRole>
-          {/*Boton #5 Menu Principal Red*/}
-          <HasRole rol={sessionStorage.getItem("NOMBRE_ROL")} arrRole={['Administrador', 'Distrital', 'Red', 'Departamental', 'Nacional']}>
+          {/*Boton #5 Menu Principal Redes*/}
+          <HasRole rol={sessionStorage.getItem("NOMBRE_ROL")} arrRole={['Administrador', 'Distrital', 'Redes', 'Departamental', 'Nacional']}>
             <div
               className="cards-menu-div hover:cursor-pointer border border-color-fondo rounded-lg"
               onClick={() => Navigate(navigate5)}>
-              <BsFillPinMapFill style={{ color: 'FFFFFF', fontSize: '50px', margin: 'auto' }} />
+              <BsFillPinMapFill style={{ color: 'black', fontSize: '50px', margin: 'auto' }} />
               <br></br>
-              <p className="font-bold text-xl text-white">{title5}</p>
+              <p className="font-bold text-xl text-black">{title5}</p>
             </div>
           </HasRole>
 
@@ -135,18 +135,18 @@ function MainLayout({
             <div
               className="cards-menu-div hover:cursor-pointer border border-color-fondo rounded-lg"
               onClick={() => Navigate(navigate7)}>
-              <BsFillPersonFill style={{ color: 'FFFFFF', fontSize: '50px', margin: 'auto' }} />
+              <BsFillPersonFill style={{ color: 'black', fontSize: '50px', margin: 'auto' }} />
               <br></br>
-              <p className="font-bold text-xl text-white">{title7}</p>
+              <p className="font-bold text-xl text-black">{title7}</p>
             </div>
           </HasRole>
           {/*Boton #8 Menu Principal Escuela*/}
           <div
             className="cards-menu-div hover:cursor-pointer border border-color-fondo rounded-lg"
             onClick={() => Navigate(navigate8)}>
-            <BiHomeAlt style={{ color: 'FFFFFF', fontSize: '50px', margin: 'auto' }} />
+            <BiHomeAlt style={{ color: 'black', fontSize: '50px', margin: 'auto' }} />
             <br></br>
-            <p className="font-bold text-xl text-white">{title8}</p>
+            <p className="font-bold text-xl text-black">{title8}</p>
           </div>
 
 
@@ -156,7 +156,7 @@ function MainLayout({
 
 
         </div>
-        <BackButton path="/main-menu-admin" />
+        <BackButton  path="/main-menu-admin" />
       </div>
     </div >
   );
