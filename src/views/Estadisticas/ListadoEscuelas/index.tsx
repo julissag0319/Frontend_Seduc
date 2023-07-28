@@ -34,11 +34,6 @@ function ListaEscuela() {
       icon="Icono"
       iconRight="Otro icono">
       <div className="h-auto">
-
-
-
-
-
         <br />
         <br></br>
         <TableListaEscuela data={DataEscuelas} />

@@ -41,7 +41,7 @@ function EliminarFormularioBasicoEscuela({
      form.setValues({
         optionSelectid_Departamento: option1,
         optionSelectid_Municipio: option2,
-        inputFielddescripcion_Escuela:option1,
+        inputFielddescripcion_Escuela:description1,
         optionSelectid_Persona: option3,
         optionSelectid_Red:option4,
         optionSelectid_Estado:option5,

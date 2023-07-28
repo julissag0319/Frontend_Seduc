@@ -36,7 +36,7 @@ function EliminarEscuela() {
     option4={data && data.id_Red}
     option5={data && data.id_Estado}
     onSubmitHandler={onSubmitHandler}
-    formTitle="Editar Escuela"
+    formTitle="Eliminar Escuela"
         />
       </div>
     </LayoutContent>

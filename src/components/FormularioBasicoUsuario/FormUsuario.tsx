@@ -235,7 +235,7 @@ function FormUsuario({
               inputFieldnombre_Usuario.length < 3 ||
               inputFieldnombre_Usuario.length > 50 ||
               inputFieldcontrasena_Usuario.length < 3 ||
-              inputFieldcontrasena_Usuario.length > 50 ||
+              inputFieldcontrasena_Usuario.length > 150 ||
               inputFieldcodigo_Recuperacion.length < 6 ||
               inputFieldcodigo_Recuperacion.length > 50
             }

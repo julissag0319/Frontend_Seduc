@@ -34,7 +34,7 @@ function EditarEscuela() {
       };
       await sleep(4000);
       await editarEscuela(escuela);
-      Navigate("/listar-persona");
+      Navigate("/listar-escuela");
     } catch (error) {
       console.log(error);
     }

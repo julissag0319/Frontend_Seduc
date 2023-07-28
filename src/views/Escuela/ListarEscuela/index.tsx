@@ -8,7 +8,7 @@ function ListaEscuela() {
  
   //const [Escuelas, setEscuelas] = useState([]);
   const { data } = useObtenerTodasEscuelaQuery({});
- 
+  console.log(data)
 
 
 

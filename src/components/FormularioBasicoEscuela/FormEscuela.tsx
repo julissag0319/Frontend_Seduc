@@ -67,7 +67,9 @@ function FormEscuela({
     apiClient.get("/municipio").then(({ data }) => {
         setMunicipio(data);
       }); 
-
+    apiClient.get("/persona").then(({ data }) => {
+        setPersona(data);
+      }); 
 
       apiClient.get("/red").then(({ data }) => {
         setRed(data);
@@ -77,7 +79,9 @@ function FormEscuela({
 const [municipio, setMunicipio] = useState([]);
 
 ///////////////////////////////////////////////////////////////////
-
+///////////////////////////////////////////////////////////////////
+const [persona, setPersona] = useState([]);
+///////////////////////////////////////////////////////////////////////
 const [red, setRed] = useState([]);
 
 ///////////////////////////////////////////////////////////////////
@@ -148,6 +152,9 @@ const [red, setRed] = useState([]);
         </div>
 
 
+
+
+
       {/*Text Box de descripcion Escuela*/}
       <div className={`${flexInputContainer}`}>
         <div className={`${flexLabelInputs}`}>
@@ -169,7 +176,35 @@ const [red, setRed] = useState([]);
       </div>
  
 
-  
+ {/*Option Select de id Persona*/}
+<div className={`${flexInputContainer}`}>
+          <div className={`${flexLabelInputs}`}>
+            <label className={`${labelStyle}`}>Persona</label>
+            <select
+              value={optionSelectid_Persona}
+              onChange={handleChange}
+              //defaultValue={"1"}
+
+              name="optionSelectid_Persona"
+              className="input-styles bg-primary-content"
+              disabled={isRemove ? true : false}
+            >
+              <option>Seleccione una Opcion</option>
+              {persona.map(
+                ({ nombre_Persona, id_Persona }) => (
+                  <option value={id_Persona}>
+                    {nombre_Persona}
+                  </option>
+                )
+              )}
+            </select>
+          </div>
+          {touched.optionSelectid_Persona &&
+            errors.optionSelectid_Persona && (
+              <ErrorMessage message={errors.optionSelectid_Persona} />
+            )}
+        </div>
+ 
 
         {/*Option Select de id Red*/}
           <div className={`${flexInputContainer}`}>
