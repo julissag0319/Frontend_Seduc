@@ -2,7 +2,7 @@ import { apiClient } from "@/utilitarios/axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import vertigo from "../../img/LOGO_USAD (1).png"
-import backgroundImage from "../../assets/undraw_teacher_re_sico.svg"
+
 
 
 export const ForgotPassword = () => {

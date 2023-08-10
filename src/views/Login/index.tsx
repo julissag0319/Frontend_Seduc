@@ -2,7 +2,7 @@ import { apiClient } from "@/utilitarios/axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import vertigo from "../../img/LOGO_USAD (1).png"
-import backgroundImage from "../../assets/undraw_teacher_re_sico.svg"
+
 
 
 export const Login = () => {
@@ -94,7 +94,7 @@ export const Login = () => {
             <h1 className="text-5xl font-bold text-black">!Inicio de Sesion USAD!</h1>
             <p className="py-6 text-black">Bienvenido (a) al control de redes de centros educativos </p>
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-200">
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-black">
             <div className="card-body">
               <div className="form-control">
                 <label className="label">
